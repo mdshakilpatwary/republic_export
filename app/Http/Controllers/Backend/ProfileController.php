@@ -9,6 +9,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
+use File;
+use Image;
 
 
 class ProfileController extends Controller
@@ -16,6 +18,38 @@ class ProfileController extends Controller
     public function index(){
         return view('backend.profile');
     }
+
+    // profile update method
+    public function update(Request $request, $id){
+        $user = User::find($id);
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        $user->name =$request->name ;
+        $user->email =$request->email ;
+        $user->phone =$request->phone ;
+
+        if($request->file('image')){
+            if(File::exists(public_path('uploads/user/'.$user->image))){
+                File::delete(public_path('uploads/user/'.$user->image));
+            }
+            $image = $request->file('image');
+            $customName = 'user' . rand() . '.' . $image->getClientOriginalExtension();            
+            
+            $user->image= $customName;
+            $image->move('uploads/user/',$customName);
+ 
+        }
+        $msg =$user->update();
+        if($msg){
+            return back()->with('success','Data successfully updated.');
+        }
+        else{
+            return back()->with('success','Data Not update.');
+        }
+    }
+
+    // password change method 
     public function changePassword(Request $rqst, $id){
         $userpass = User::find($id);
         $rqst->validate([
