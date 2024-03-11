@@ -94,6 +94,8 @@ $header_banner = '';
           </div>
     </div>
 </section>
+@else
+<p class="text-center p-2">Not update about data</p>
 @endif
 <!-- about gallery image end -->
 <!-- about info service image start -->
