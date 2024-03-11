@@ -1,5 +1,6 @@
 <?php
 use App\Models\CommonHeaderBanner;
+use App\Models\PageElement;
 $pageTitle ='About';
 $header_banner = '';
 
@@ -53,26 +54,25 @@ $header_banner = '';
 
       <!---->
 <!-- about info start -->
+@if(PageElement::where('type','=',3)->first())
+  @php
+  $aboutElement = PageElement::where('type','=',3)->first();
+  $contentArray =json_decode($aboutElement->content, true);                     
+  @endphp
 <section id="about-info">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12">
                 <div class="about-info-img">
-                    <img src="{{asset('frontend')}}/img/LEBARONS-07.jpg" alt="">
+                    <img src="{{ asset('uploads/about/' . $aboutElement->image) }}" alt="">
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12">
                 <div class="about-info-content">
                     <h3>OUR STORY</h3>
                     <p>
-                        In the early 2000s, Laure and Gilles, a young French couple, fell in love with Bangladesh. In 2000, they decided to create their own company to promote 'Made in Bangladesh' products in France, and thus, Crossline was born.
-                        <br>
-                        Twenty-two years later, we have become one of the leading exporters of Asian-made garments to Europe. In 2016, we welcomed prestigious financial partners, such as BPI and Unexo, to join our adventure and support our growth.
-                        <br>
-                        Our success today is the result of a harmonious blend of our extensive experience, the talent and expertise of our teams and our innovative spirit.
-                        <br>
-                        Our success today is the result of a harmonious blend of our extensive experience, the talent and expertise of our teams and our innovative spirit.
-                    </p>
+                      {!!$contentArray['storyText']!!}
+                   </p>
                 </div>
             </div>
         </div>
@@ -84,27 +84,17 @@ $header_banner = '';
 <section id="about-info-gallery">
     <div class="container">
         <div class="about-info-gallery-photo">
+          @foreach($contentArray['contentImage'] as $key => $image)
             <div class="photo">
-              <img src="{{asset('frontend')}}/img/ABOUTUS-06V.jpg">
+              <img src="{{ asset('uploads/about/' . $image) }}">
             </div>
-            <div class="photo">
-              <img src="{{asset('frontend')}}/img/ABOUTUS-06V.jpg">
-            </div>
-            <div class="photo">
-                <img src="{{asset('frontend')}}/img/ABOUTUS-05V.jpg">
-            </div>
-            <div class="photo">
-                <img src="{{asset('frontend')}}/img/ABOUTUS-05V.jpg">
-            </div>
-            <div class="photo">
-                <img src="{{asset('frontend')}}/img/ABOUTUS-02V.jpg">
-            </div>
-            <div class="photo">
-                <img src="{{asset('frontend')}}/img/ABOUTUS-02V.jpg">
-            </div>
+          @endforeach
+          
+            
           </div>
     </div>
 </section>
+@endif
 <!-- about gallery image end -->
 <!-- about info service image start -->
 <section id="about-service" style="background-image: url(img/GRAPHIC-04.png); background-size: cover; background-repeat: no-repeat;">

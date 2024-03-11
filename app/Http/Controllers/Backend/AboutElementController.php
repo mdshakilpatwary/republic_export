@@ -11,17 +11,18 @@ class AboutElementController extends Controller
 {
         // About story element
         public function index(){
-            return view('backend.homeElement.industrialElement');
+            return view('backend.aboutElement.aboutstory');
         }
         public function store(Request $request){
-            // $request->validate([
-            //     'elementImage' => 'image|mimes:jpeg,png,jpg,gif|max:1048',
-            // ]);
+            $request->validate([
+                'singleImage' => 'image|mimes:jpeg,png,jpg,gif|max:1048',
+                'storyContent' => 'required',
+            ]);
             $pageElement=new PageElement;
           
             if(PageElement::where('type','=', 3)->first()){
     
-                return back()->with('error','Oops! Already you have passed this element data !');
+                return back()->with('error','Oops! Already you have passed about element data !');
             }
             else{
     
@@ -30,33 +31,40 @@ class AboutElementController extends Controller
                     $files = $request->file('elementImage');
                     
                         foreach($files as $file){
-                            $customnamefile='industrialElement'.rand().'.'. $file->getClientOriginalExtension();
+                            $customnamefile='aboutStoryMulti'.rand().'.'. $file->getClientOriginalExtension();
                             $images[]= $customnamefile;
                            
-                            $file->move('uploads/element/', $customnamefile);
+                            $file->move('uploads/about/', $customnamefile);
                     
                            
                 
                         }
                     
                 }
+                if($request->file('singleImage')){
+                    $singlefiles = $request->file('singleImage');
+                    
+                            $customnamefile='aboutStorysingle'.rand().'.'. $singlefiles->getClientOriginalExtension();                           
+                            $singlefiles->move('uploads/about/', $customnamefile);
+                            
+                            $pageElement->image =$customnamefile;
+                    
+                }
     
                 $contentArray = [
-                    'contentTitle' => $request->elementTitle,
-                    'contentText' => $request->elementText,
+                    'storyText' => $request->storyContent,
                     'contentImage' => $images
                 ];
-        
                 $contentJson = json_encode($contentArray);
                 $pageElement->type =3;
                 $pageElement->content =$contentJson;
                 $msg = $pageElement->save();
     
                 if($msg){
-                    return back()->with('success','Successfully element added.');
+                    return back()->with('success','Successfully about story added.');
                 }
                 else{
-                    return back()->with('error','Oops! Element Not add.');
+                    return back()->with('error','Oops! About Element Not Add.');
                 }
             }
     
@@ -66,40 +74,50 @@ class AboutElementController extends Controller
         public function update(Request $request,$id){
     
     
-            $elements = PageElement::where('type',1)->first();
-            $contentArray =json_decode($elements->content, true);  
+            $elements = PageElement::where('type',3)->first();  
             
-    
             
             $images=array();
-            if($request->elementImage){
-                
-            }
+            
             if($request->elementImage or $request->file['elementImage']){
                 $inputValues = array_filter($request->elementImage, function($value) {
                     return !is_a($value, \Illuminate\Http\UploadedFile::class);
                 });
+
                 foreach($inputValues as $inputValue){
     
                     $images[]= $inputValue;
                 }
-                
-                 if($request->file('elementImage')){
+                // multiple image 
+                if($request->file('elementImage')){
                     $files = $request->file('elementImage');
-                    foreach($files as $file){
-                        $customnamefile='industrialElement'.rand().'.'. $file->getClientOriginalExtension();
-                        $images[]= $customnamefile;
-                       
-                            $file->move('uploads/element/', $customnamefile);
-                        
-            
+                    
+                        foreach($files as $file){
+                            $customnamefile='aboutStoryMulti'.rand().'.'. $file->getClientOriginalExtension();
+                            $images[]= $customnamefile;
+                           
+                            $file->move('uploads/about/', $customnamefile);
+                
+                        }
+                    
+                }
+                // single image 
+                if($request->file('singleImage')){
+                    if(File::exists(public_path('uploads/about/'.$elements->image))){
+                        File::delete(public_path('uploads/about/'.$elements->image));
                     }
-                 }
+                    $singlefiles = $request->file('singleImage');
+                    
+                    $customnamefile='aboutStorysingle'.rand().'.'. $singlefiles->getClientOriginalExtension();                           
+                    $singlefiles->move('uploads/about/', $customnamefile);
+                    
+                    $elements->image =$customnamefile;
+                    
+                }
                 
             }
             $contentArray = [
-                'contentTitle' => $request->elementTitle,
-                'contentText' => $request->elementText,
+                'storyText' => $request->storyContent,
                 'contentImage' => $images
             ];
             $contentJson = json_encode($contentArray);
@@ -107,10 +125,10 @@ class AboutElementController extends Controller
             $msg = $elements->update();
     
             if($msg){
-                return back()->with('success','Successfully element Updated.');
+                return back()->with('success','Successfully about element Updated.');
             }
             else{
-                return back()->with('error','Oops! Element Not Update.');
+                return back()->with('error','Oops! About Element Not Update.');
             }
         }
 

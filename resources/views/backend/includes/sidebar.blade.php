@@ -50,6 +50,21 @@
           </li>
         </ul>
       </li>
+
+      <li class="nav-item ">
+        <a class="nav-link collapsed " data-bs-target="#components-nav-3" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>About page</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav-3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+ 
+          <li>
+            {{-- class="{{ Route::is('header.info*')? 'active' : '' }}" --}}
+            <a href="{{route('about.story')}}" >
+              <i class="bi bi-circle"></i><span>About Story</span>
+            </a>
+          </li>
+        </ul>
+      </li>
       <!-- End Components Nav -->
 
 

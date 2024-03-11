@@ -258,7 +258,8 @@ features
 
 
 .wrap-item .item-img img{
-  max-width: 70%;
+  width: 75%;
+  height: 105px;
 }
 .wrap-item h3 {
   font-size: 24px;
