@@ -21,7 +21,7 @@ $siteInfoData = siteInfoData();
               <a class="nav-link" href="our_expertise.html">Our expertise</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="our_products.html">Our Products</a>
+              <a class="nav-link {{Route::is('our.product*')? 'active' : '' }}" href="{{route('our.product')}}">Our Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="csr.html">CSR</a>

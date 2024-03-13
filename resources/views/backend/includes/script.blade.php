@@ -9,9 +9,9 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('backend')}}/assets/js/main.js"></script>
+  @yield('script_link')
 
-
-  <script>
+<script>
     //  onchange image file part
 $(document).ready(function(){
   $('.file_image').change('.change_image',function(){
@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 
 
-  </script>
+</script>
 
 </body>
 

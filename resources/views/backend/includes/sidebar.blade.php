@@ -68,6 +68,69 @@
       <!-- End Components Nav -->
 
 
+      <li class="nav-heading">Product Elements</li>
+
+      <li class="nav-item ">
+        <a class="nav-link collapsed " data-bs-target="#components-nav-4" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Product</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav-4" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+ 
+          <li>
+            {{-- class="{{ Route::is('header.info*')? 'active' : '' }}" --}}
+            <a href="{{route('product')}}" >
+              <i class="bi bi-circle"></i><span>Add Product</span>
+            </a>
+          </li>
+          <li>
+            {{-- class="{{ Route::is('header.info*')? 'active' : '' }}" --}}
+            <a href="{{route('product.manage')}}" >
+              <i class="bi bi-circle"></i><span>Manage Product</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link collapsed " data-bs-target="#components-nav-5" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Product Image</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav-5" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+ 
+          <li>
+            {{-- class="{{ Route::is('header.info*')? 'active' : '' }}" --}}
+            <a href="{{route('product.image.element')}}" >
+              <i class="bi bi-circle"></i><span>Add Image</span>
+            </a>
+          </li>
+          <li>
+            {{-- class="{{ Route::is('header.info*')? 'active' : '' }}" --}}
+            <a href="{{route('product.manage.image.element')}}" >
+              <i class="bi bi-circle"></i><span>Manage Image</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link collapsed " data-bs-target="#components-nav-6" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Product Spacifications</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav-6" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+ 
+          <li>
+            {{-- class="{{ Route::is('header.info*')? 'active' : '' }}" --}}
+            <a href="{{route('product.spacific.element')}}" >
+              <i class="bi bi-circle"></i><span>Add Spacification</span>
+            </a>
+          </li>
+          <li>
+            {{-- class="{{ Route::is('header.info*')? 'active' : '' }}" --}}
+            <a href="{{route('product.manage.spacific.element')}}" >
+              <i class="bi bi-circle"></i><span>Manage Spacification</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">

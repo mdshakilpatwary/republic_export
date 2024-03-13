@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('p_headline');
             $table->string('p_banner');
             $table->text('p_description');
+            $table->string('image_1')->nullable();
+            $table->string('image_2')->nullable();
+            $table->string('image_3')->nullable();
+            $table->string('image_4')->nullable();
+            $table->string('image_5')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();
         });

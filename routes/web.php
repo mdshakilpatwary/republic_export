@@ -6,6 +6,8 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\PageBannerController;
 use App\Http\Controllers\Backend\PageElementController;
 use App\Http\Controllers\Backend\AboutElementController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ProductElementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,7 +50,7 @@ Route::middleware('auth','role:Admin')->group(function () {
         Route::post('/site/info/update/{type}', 'siteInfoUpdate')->name('site.info.update');
     });
 
-    //admin profile route part controller group------- 01
+    //admin profile route part controller group------- 02
     Route::controller(ProfileController::class)->group(function () {
         Route::get('/admin/profile', 'index')->name('admin.profile');
         Route::post('/admin/profile/update/{id}', 'update')->name('admin.profile.update');
@@ -64,7 +66,7 @@ Route::middleware('auth','role:Admin')->group(function () {
         Route::get('/header/info/delete/{id}', 'delete')->name('header.info.delete');
 
     });
-    //Page Element route part controller group------- 03
+    //Page Element route part controller group------- 04
     Route::controller(PageElementController::class)->group(function () {
         // home industrial element 
         Route::get('/home/industrial/element', 'index')->name('home.industrial.element');
@@ -80,12 +82,40 @@ Route::middleware('auth','role:Admin')->group(function () {
 
     });
 
-    //about Element route part controller group------- 03
+    //about Element route part controller group------- 05
     Route::controller(AboutElementController::class)->group(function () {
         // about story element 
         Route::get('/about/story/', 'index')->name('about.story');
         Route::post('/about/story/store', 'store')->name('about.story.store');
         Route::post('/about/story/update/{id}', 'update')->name('about.story.update');
+    });
+
+    //product route part controller group------- 06
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('/product', 'index')->name('product');
+        Route::post('/product/store', 'store')->name('product.store');
+        Route::post('/product/update/{id}', 'update')->name('product.update');
+        Route::get('/product/manage', 'manage')->name('product.manage');
+        Route::get('/product/edit/{id}', 'edit')->name('product.edit');
+        Route::get('/product/delete/{id}', 'delete')->name('product.delete');
+    });
+
+    //product element route part controller group------- 07
+    Route::controller(ProductElementController::class)->group(function () {
+        // product Image part 
+        Route::get('/product/image/element/', 'productImage')->name('product.image.element');
+        Route::get('/product/image/manage/element/', 'productImageManage')->name('product.manage.image.element');
+        Route::post('/product/image/store/element/', 'productImageStore')->name('product.image.store');
+        Route::get('/product/image/delete/{id}', 'productImageDelete')->name('product.image.delete');
+
+        // Product spacific part 
+        Route::get('/product/spacific/element/', 'productSpacific')->name('product.spacific.element');
+        Route::get('/product/spacific/manage/element/', 'productSpacificManage')->name('product.manage.spacific.element');
+        Route::post('/product/spacific/store/element/', 'productSpacificStore')->name('product.spacific.store');
+        Route::post('/product/spacific/update/element/{id}', 'productSpacificUpdate')->name('product.spacific.update');
+        Route::get('/product/spacific/edit/{id}', 'productSpacificEdit')->name('product.spacific.edit');
+        Route::get('/product/spacific/delete/{id}', 'productSpacificDelete')->name('product.spacific.delete');
+
     });
 
 });

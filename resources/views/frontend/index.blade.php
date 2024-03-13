@@ -53,7 +53,7 @@ $header_banner = '';
 
       <!--/ HEADER-->
       <!---->
-      <section id="feature" class="section-padding wow fadeIn delay-05s" style="background-image: url({{asset('frontend')}}/img/GRAPHIC-04.png); background-size: cover; background-repeat: no-repeat;">
+      <section id="feature" class="section-padding wow fadeIn delay-05s" style="background-image: url({{asset('frontend')}}/img/GRAPHIC-04.png); background-size: cover; background-position: center center; background-repeat: no-repeat;">
         <div class="container">
           <div class="row">
             <div class="col-md-12 col-lg-12 col-xl-12 col-12">
@@ -103,49 +103,26 @@ $header_banner = '';
       <section id="category" class="section-padding wow fadeInUp delay-05s">
         <div class="container">
           <div class="row ">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="category-sec">
-                <div class="category-img">
-                  <a href="">
-                    <img src="{{asset('frontend')}}/img/MINIATURE-WOVEN.jpg" class="img-responsive">
-                  </a>
-                </div>
-                <div class="category-info">
-                  <h2>WOVEN</h2>
-                  <p>We're experts in woven. Explore what it's like to collaborate with us. </p>
-                  <a href="product_single_page.html" class="read-more">Discover ></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="category-sec">
-                <div class="category-img">
-                  <a href="">
-                    <img src="{{asset('frontend')}}/img/MINIATURE-KNIT.jpg" class="img-responsive">
-                  </a>
-                </div>
-                <div class="category-info">
-                  <h2>KNIT</h2>
-                  <p>Eternally youthful. Explore the reasons top global brands partner with us</p>
-                  <a href="product_single_page.html" class="read-more">discover ></a>
+            @if($products)
+            @foreach($products as $product)
+              <div class="col-md-4 col-sm-6 col-xs-12 mb-3">
+                <div class="category-sec">
+                  <div class="category-img">
+                    <a href="">
+                      <img src="{{asset('uploads/product/'.$product->p_image)}}" class="img-responsive">
+                    </a>
+                  </div>
+                  <div class="category-info">
+                    <h2>{{$product->p_name}}</h2>
+                    <p>{{$product->p_headline}}</p>
+                    <a href="{{route('product.single',$product->p_name)}}" class="read-more">Discover ></a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="category-sec">
-                <div class="category-img">
-                  <a href="">
-                    <img src="{{asset('frontend')}}/img/MINIATURE-SWEATER.jpg" class="img-responsive">
-                  </a>
-                </div>
-                <div class="category-info">
-                  <h2>SWEATER</h2>
-                  <p>When tradition blends with innovation. Delve into our distinctive sweater craftsmanship.</p>
-                  <a href="product_single_page.html" class="read-more">Discover ></a>
-                </div>
-              </div>
-            </div>
-  
+            @endforeach
+            @else
+            <p class="text-center">No product uploaded</p>
+            @endif
           </div>
         </div>
       </section>
