@@ -100,10 +100,10 @@
         </ul>
       </li>
       <li class="nav-item ">
-        <a class="nav-link collapsed " data-bs-target="#components-nav-10" data-bs-toggle="collapse" href="#" style="background:{{  Route::is('csr.common*') || Route::is('csr.raw_material*') ||Route::is('csr.common.update*')? '#f6f9ff' : '' }} ; ">
+        <a class="nav-link collapsed " data-bs-target="#components-nav-10" data-bs-toggle="collapse" href="#" style="background:{{  Route::is('csr.common*') || Route::is('csr.raw_material*') ||Route::is('csr.pre_production*')||Route::is('csr.production*')? '#f6f9ff' : '' }} ; ">
           <i class="bi bi-menu-button-wide"></i><span>Csr page</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav-10" class="nav-content collapse {{ Route::is('csr.common*') || Route::is('csr.common.store*') ||Route::is('csr.raw_material*')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
+        <ul id="components-nav-10" class="nav-content collapse {{ Route::is('csr.common*') || Route::is('csr.pre_production*') ||Route::is('csr.raw_material*')||Route::is('csr.production*')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
  
           <li>
             <a href="{{route('csr.common')}}" class="{{ Route::is('csr.common')? 'active' : '' }}">
@@ -113,6 +113,16 @@
           <li>
             <a href="{{route('csr.raw_material')}}" class="{{ Route::is('csr.raw_material')? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Csr Raw Material</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('csr.pre_production')}}" class="{{ Route::is('csr.pre_production')? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Csr Pre-Production</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('csr.production')}}" class="{{ Route::is('csr.production')? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Csr Production</span>
             </a>
           </li>
           

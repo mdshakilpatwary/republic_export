@@ -18,12 +18,12 @@ use App\Models\CsrPageElement;
 @endsection
 @section('main_body_content_part')
 <div class="pagetitle">
-    <h1>Csr Raw Material</h1>
+    <h1>Csr Pre-Production</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
         <li class="breadcrumb-item">Csr</li>
-        <li class="breadcrumb-item">Raw</li>
+        <li class="breadcrumb-item">Pre-Production</li>
         <li class="breadcrumb-item active">Meterial</li>
       </ol>
     </nav>
@@ -36,18 +36,18 @@ use App\Models\CsrPageElement;
 
             <div class="card">
               <!-- update form-->
-              @if(CsrPageElement::where('type','=', 2)->first())
+              @if(CsrPageElement::where('type','=', 3)->first())
               @php
-                $csr_raw=CsrPageElement::where('type','=', 2)->first();
+                $csr_raw=CsrPageElement::where('type','=', 3)->first();
                 $title = json_decode($csr_raw->title, true) ;
                 $content = json_decode($csr_raw->text_content, true) ;
                 
               @endphp
               <div class="card-body">
-                <h5 class="card-title">Csr Raw Material Update</h5>
+                <h5 class="card-title">Csr Pre-Production Update</h5>
   
                 <!-- General Form Elements -->
-                <form method="POST" action="{{route('csr.raw_material.update',$csr_raw->id)}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('csr.pre_production.update',$csr_raw->id)}}" enctype="multipart/form-data">
                 @csrf
                   <div class="row mb-3">
                       
@@ -138,10 +138,10 @@ use App\Models\CsrPageElement;
               <!-- add form-->
               @else
               <div class="card-body">
-                <h5 class="card-title">Csr Raw Material Add</h5>
+                <h5 class="card-title">Csr Pre-Production Add</h5>
   
                 <!-- General Form Elements -->
-                <form method="POST" action="{{route('csr.raw_material.store')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('csr.pre_production.store')}}" enctype="multipart/form-data">
                 @csrf
                   <div class="row mb-3">
                       

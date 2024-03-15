@@ -151,11 +151,22 @@ Route::middleware('auth','role:Admin')->group(function () {
         Route::get('/csr/common', 'csrCommon')->name('csr.common');
         Route::post('/csr/common/store', 'csrCommonStore')->name('csr.common.store');
         Route::post('/csr/common/update/{id}', 'csrCommonUpdate')->name('csr.common.update');
-        // casr raw meterial part
-         
+        
+        // csr raw meterial part
+
         Route::get('/csr/raw_maretial', 'csrRaw')->name('csr.raw_material');
         Route::post('/csr/raw_maretial/store', 'csrRawStore')->name('csr.raw_material.store');
         Route::post('/csr/raw_maretial/update/{id}', 'csrRawUpdate')->name('csr.raw_material.update');
+        // csr pre-production part
+
+        Route::get('/csr/pre_production', 'csrPreProduction')->name('csr.pre_production');
+        Route::post('/csr/pre_production/store', 'csrPreProductionStore')->name('csr.pre_production.store');
+        Route::post('/csr/pre_production/update/{id}', 'csrPreProductionUpdate')->name('csr.pre_production.update');
+        // csr production part
+
+        Route::get('/csr/production', 'csrProduction')->name('csr.production');
+        Route::post('/csr/production/store', 'csrProductionStore')->name('csr.production.store');
+        Route::post('/csr/production/update/{id}', 'csrProductionUpdate')->name('csr.production.update');
 
 
     });
