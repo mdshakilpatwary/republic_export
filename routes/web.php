@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProductElementController;
 use App\Http\Controllers\Backend\ExpertisePageController;
 use App\Http\Controllers\Backend\CareerController;
+use App\Http\Controllers\Backend\CsrPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -131,6 +132,7 @@ Route::middleware('auth','role:Admin')->group(function () {
         Route::get('/career/status/{id}', 'status')->name('career.status');
 
     });
+
     //Expertise page route part controller group------- 08
     Route::controller(ExpertisePageController::class)->group(function () {
         // career part 
@@ -143,6 +145,21 @@ Route::middleware('auth','role:Admin')->group(function () {
         Route::get('/expertise/element/status/{id}', 'status')->name('expertise.element.status');
 
     });
+    //Csr page route part controller group------- 09
+    Route::controller(CsrPageController::class)->group(function () {
+        // casr common part 
+        Route::get('/csr/common', 'csrCommon')->name('csr.common');
+        Route::post('/csr/common/store', 'csrCommonStore')->name('csr.common.store');
+        Route::post('/csr/common/update/{id}', 'csrCommonUpdate')->name('csr.common.update');
+        // casr raw meterial part
+         
+        Route::get('/csr/raw_maretial', 'csrRaw')->name('csr.raw_material');
+        Route::post('/csr/raw_maretial/store', 'csrRawStore')->name('csr.raw_material.store');
+        Route::post('/csr/raw_maretial/update/{id}', 'csrRawUpdate')->name('csr.raw_material.update');
+
+
+    });
+
 
 });
 // Home controller backend routing part end 

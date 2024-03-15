@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('csr_page_elements', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('image')->nullable();
-            $table->text('text_content');
-            $table->integer('type')->comment('type =1(csr_common), type =2(csr_raw_meterial),type =3(csr_pre_production) and type =4(csr_production)');
+            $table->text('text_content')->nullable();
+            $table->integer('type')->uniqid()->comment('type =1(csr_common), type =2(csr_raw_meterial),type =3(csr_pre_production) and type =4(csr_production)');
             $table->integer('status')->default(1);
             $table->timestamps();
         });
