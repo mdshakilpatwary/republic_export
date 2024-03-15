@@ -1,7 +1,7 @@
 <?php
 use App\Models\CommonHeaderBanner;
 use App\Models\PageElement;
-$pageTitle ='About';
+$pageTitle ='Our Product';
 $header_banner = '';
 
 ?>
@@ -53,7 +53,16 @@ $header_banner = '';
       <!--/ HEADER-->
 
       <!--product element-->
+
+    @foreach($products as $key => $product )
     <!--our products info 01 section start-->
+   
+    @if($key % 3 == 0)
+
+    @php
+    $spacifics = App\Models\ProductSpecification::where('product_id','=',$product->id)->get();
+    @endphp
+    
     <section id="our_product_info">
         <div class="container">
             <div class="row ">
@@ -61,78 +70,36 @@ $header_banner = '';
                     <div class="row">
                       <div class="offset-md-1 col-12 col-md-11">
                         <div class="our_product_info_content ">
-                          <h3>WOVEN PRODUCTS</h3>
+                          <h3>{{$product->p_name}} PRODUCTS</h3>
                           <!-- accordin  -->
                           <div class="accordion" id="accordionExample">
-                              
+                              @foreach($spacifics as $spacific)
                               <div class="accordion-item">
-                                <h2 class="accordion-header" id="product_according_1">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
-                                    Leadtime
+                                <h2 class="accordion-header" id="product_according_{{$spacific->id}}">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$spacific->id}}" aria-expanded="false" aria-controls="collapseTwo">
+                                    {{$spacific->title}}
                                   </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="product_according_1" data-bs-parent="#accordionExample">
+                                <div id="collapse{{$spacific->id}}" class="accordion-collapse collapse" aria-labelledby="product_according_{{$spacific->id}}" data-bs-parent="#accordionExample">
                                   <div class="accordion-body">
-                                      <ul>
-                                          <li> 45 to 120 days</li>
+                                      <ul style="list-style: none">
+                                          <li> {!! $spacific->textContent!!}</li>
                                       </ul>
                                   </div>
                                 </div>
                               </div>
-                              <div class="accordion-item">
-                                <h2 class="accordion-header" id="product_according_2">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseThree">
-                                      Minimum Order Quantity (MOQ)
-                                  </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="product_according_2" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                      <ul>
-                                          <li>3000 pcs / Reference</li>
-                                      </ul>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="accordion-item">
-                                <h2 class="accordion-header" id="product_according_3">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                      Product Group
-                                  </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="product_according_3" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                      <ul>
-                                          <li>Women / Men / Kids / Baby</li>
-                                      </ul>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="accordion-item">
-                                <h2 class="accordion-header" id="product_according_4">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                                      Category Split
-                                  </button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="product_according_4" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                      <ul>
-                                          <li>Pants, Shirt, Jacket, Blouse, Dress</li>
-                                          <li>Denim, Non-Denim, Woven & Lightweight Woven</li>
-                                      </ul>
-                                  </div>
-                                </div>
-                              </div>
+                              @endforeach
                           </div>
                           <!-- Accordin  -->
                           <div class="contact-btn">
-                              <a href="">Discover More ></a>
+                              <a href="{{route('product.single',$product->p_name)}}">Discover More ></a>
                             </div>    
                       </div>
                       </div>
                       <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
                         <div class="our_product_info_img " style="height: 500px !important; margin: 10px auto;">
                           <div class="image-width" style="height: 500px !important; width: 85%; margin: 10px auto;">
-                            <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="" style="max-height: 100% !important;">
+                            <img src="{{asset('uploads/product/'.$product->image_2)}}" alt="" style="max-height: 100% !important;">
                           </div>
                         </div>
                       </div>
@@ -140,12 +107,12 @@ $header_banner = '';
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12">
                     <div class="our_product_info_img ">
-                        <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="">
+                        <img src="{{asset('uploads/product/'.$product->image_1)}}" alt="">
                     </div>
                     <div class="row mt-5">
                       <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
                         <div class="our_product_info_img " style="height: 370px !important; margin: 0 auto;">
-                            <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="" >
+                            <img src="{{asset('uploads/product/'.$product->image_3)}}" alt="" >
                         </div>
                       </div>
                     </div>
@@ -154,12 +121,12 @@ $header_banner = '';
                 <div class="row" style="padding: 0;  margin:30px 0;">
                   <div class="col-md-8 col-lg-8 col-xl-8 col-12 col-sm-12">
                     <div class="our_product_info_img " style=" width: 89%; margin: 0 auto; height: 550px;">
-                        <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="">
+                        <img src="{{asset('uploads/product/'.$product->image_4)}}" alt="">
                     </div>
                   </div>
                   <div class="col-md-4 col-lg-4 col-xl-4 col-12 col-sm-12">
                     <div class="our_product_info_img " style="height: 550px;">
-                        <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="" style="width: 100%;">
+                        <img src="{{asset('uploads/product/'.$product->image_5)}}" alt="" style="width: 100%;">
                     </div>
                   </div>
                 </div>
@@ -167,128 +134,12 @@ $header_banner = '';
         </div>
         {{-- <p> All Printed designs created by our studio. All products manufactured by Crossline. </p> --}}
     </section>
-        <!--our products info 01 section end-->
-        <!--our products info 02 section start-->
-    <section id="our_product_info" class="our_product_info-2">
-        <div class="container">
-          <div class="row ">
-    
-            <div class="col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12">
-                <div class="row">
-                    <div class="offset-md-1 col-12 col-md-11">
-                        <div class="our_product_info_img ">
-                            <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="">
-                        </div>
-                        <div class="row mt-5">
-                          <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
-                            <div class="our_product_info_img " style="height: 370px !important; margin: 0 auto;">
-                                <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="" >
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12">
-              <div class="row">
-                <div class="col-12 col-md-12">
-                  <div class="our_product_info_content " style="margin-left: 35px">
-                    <h3>WOVEN PRODUCTS</h3>
-                    <!-- accordin  -->
-                    <div class="accordion" id="accordionExample">
-                        
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="product_according_6">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseTwo">
-                              Leadtime
-                            </button>
-                          </h2>
-                          <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="product_according_6" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li> 45 to 120 days</li>
-                                </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="product_according_7">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
-                                Minimum Order Quantity (MOQ)
-                            </button>
-                          </h2>
-                          <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="product_according_7" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li>3000 pcs / Reference</li>
-                                </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="product_according_8">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
-                                Product Group
-                            </button>
-                          </h2>
-                          <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="product_according_8" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li>Women / Men / Kids / Baby</li>
-                                </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="product_according_9">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseThree">
-                                Category Split
-                            </button>
-                          </h2>
-                          <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="product_according_9" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li>Pants, Shirt, Jacket, Blouse, Dress</li>
-                                    <li>Denim, Non-Denim, Woven & Lightweight Woven</li>
-                                </ul>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <!-- Accordin  -->
-                    <div class="contact-btn">
-                        <a href="">Discover More ></a>
-                      </div>    
-                </div>
-                </div>
-                <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
-                  <div class="our_product_info_img clearfix " style="height: 500px !important; margin: 10px auto;">
-                    <div class="image-width" style="height: 500px !important; width: 95%; margin: 10px 0; float: right;">
-                      <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="" style="max-height: 100% !important;">
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-    
-            <div class="row" style="padding: 0;  margin:30px 0;">
-              <div class="col-md-8 col-lg-8 col-xl-8 col-12 col-sm-12">
-                <div class="our_product_info_img " style=" width: 89%; margin: 0 auto; height: 550px;">
-                    <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="">
-                </div>
-              </div>
-              <div class="col-md-4 col-lg-4 col-xl-4 col-12 col-sm-12">
-                <div class="our_product_info_img " style="height: 550px;">
-                    <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="" style="width: 100%;">
-                </div>
-              </div>
-            </div>
-        </div>
-        </div>
-        {{-- <p> All Printed designs created by our studio. All products manufactured by Crossline. </p> --}}
-    </section>
-        <!--our products info 02 section end-->
-        <!--our products info 03 section start-->
+    <!--our products info 01 section end-->
+    @elseif($key % 2 == 0)
+    @php
+    $spacifics = App\Models\ProductSpecification::where('product_id','=',$product->id)->get();
+    @endphp
+    <!--our products info 03 section start-->
     <section id="our_product_info" class="our_product_info-3">
         <div class="container">
           <div class="row ">
@@ -296,78 +147,37 @@ $header_banner = '';
                 <div class="row">
                   <div class="offset-md-1 col-12 col-md-11">
                     <div class="our_product_info_content">
-                      <h3>WOVEN PRODUCTS</h3>
+                      <h3>{{$product->p_name}} PRODUCTS</h3>
                       <!-- accordin  -->
                       <div class="accordion" id="accordionExample">
                           
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="product_according_10">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTwo">
-                                Leadtime
-                              </button>
-                            </h2>
-                            <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="product_according_10" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                  <ul>
-                                      <li> 45 to 120 days</li>
-                                  </ul>
-                              </div>
+                        @foreach($spacifics as $spacific)
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="product_according_{{$spacific->id}}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$spacific->id}}" aria-expanded="false" aria-controls="collapseTwo">
+                              {{$spacific->title}}
+                            </button>
+                          </h2>
+                          <div id="collapse{{$spacific->id}}" class="accordion-collapse collapse" aria-labelledby="product_according_{{$spacific->id}}" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul style="list-style: none" class="">
+                                    <li> {!! $spacific->textContent!!}</li>
+                                </ul>
                             </div>
                           </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="product_according_11">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseThree">
-                                  Minimum Order Quantity (MOQ)
-                              </button>
-                            </h2>
-                            <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="product_according_11" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                  <ul>
-                                      <li>3000 pcs / Reference</li>
-                                  </ul>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="product_according_12">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseThree">
-                                  Product Group
-                              </button>
-                            </h2>
-                            <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="product_according_12" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                  <ul>
-                                      <li>Women / Men / Kids / Baby</li>
-                                  </ul>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="product_according_13">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThree">
-                                  Category Split
-                              </button>
-                            </h2>
-                            <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="product_according_13" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                  <ul>
-                                      <li>Pants, Shirt, Jacket, Blouse, Dress</li>
-                                      <li>Denim, Non-Denim, Woven & Lightweight Woven</li>
-                                  </ul>
-                              </div>
-                            </div>
-                          </div>
+                        </div>
+                        @endforeach
                       </div>
                       <!-- Accordin  -->
                       <div class="contact-btn">
-                          <a href="">Discover More ></a>
+                          <a href="{{route('product.single',$product->p_name)}}">Discover More ></a>
                         </div>    
                   </div>
                   </div>
                   <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
                     <div class="our_product_info_img " style="height: 500px !important; margin: 10px auto;">
                       <div class="image-width" style="height: 500px !important; width: 85%; margin: 10px auto;">
-                        <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="" style="max-height: 100% !important;">
+                        <img src="{{asset('uploads/product/'.$product->image_1)}}" alt="" style="max-height: 100% !important;">
                       </div>
                     </div>
                   </div>
@@ -375,12 +185,12 @@ $header_banner = '';
             </div>
             <div class="col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12">
                 <div class="our_product_info_img ">
-                    <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="">
+                    <img src="{{asset('uploads/product/'.$product->image_2)}}" alt="">
                 </div>
                 <div class="row mt-5">
                   <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
                     <div class="our_product_info_img " style="height: 370px !important; margin: 0 auto;">
-                        <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="" >
+                        <img src="{{asset('uploads/product/'.$product->image_3)}}" alt="" >
                     </div>
                   </div>
                 </div>
@@ -389,12 +199,12 @@ $header_banner = '';
             <div class="row" style="padding: 0;  margin:30px 0;">
               <div class="col-md-8 col-lg-8 col-xl-8 col-12 col-sm-12">
                 <div class="our_product_info_img " style=" width: 89%; margin: 0 auto; height: 550px;">
-                    <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="">
+                    <img src="{{asset('uploads/product/'.$product->image_4)}}" alt="">
                 </div>
               </div>
               <div class="col-md-4 col-lg-4 col-xl-4 col-12 col-sm-12">
                 <div class="our_product_info_img " style="height: 550px;">
-                    <img src="{{asset('frontend')}}/img/WOVEN-8.jpg" alt="" style="width: 100%;">
+                    <img src="{{asset('uploads/product/'.$product->image_5)}}" alt="" style="width: 100%;">
                 </div>
               </div>
             </div>
@@ -403,6 +213,94 @@ $header_banner = '';
         {{-- <p> All Printed designs created by our studio. All products manufactured by Crossline. </p> --}}
     </section>
         <!--our products info 03 section end-->
+
+    @else
+    @php
+    $spacifics = App\Models\ProductSpecification::where('product_id','=',$product->id)->get();
+    @endphp
+            <!--our products info 02 section start-->
+            <section id="our_product_info" class="our_product_info-2">
+                <div class="container">
+                  <div class="row ">
+            
+                    <div class="col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12">
+                        <div class="row">
+                            <div class="offset-md-1 col-12 col-md-11">
+                                <div class="our_product_info_img ">
+                                    <img src="{{asset('uploads/product/'.$product->image_1)}}" alt="">
+                                </div>
+                                <div class="row mt-5">
+                                  <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
+                                    <div class="our_product_info_img " style="height: 370px !important; margin: 0 auto;">
+                                        <img src="{{asset('uploads/product/'.$product->image_2)}}" alt="" >
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12">
+                      <div class="row">
+                        <div class="col-12 col-md-12">
+                          <div class="our_product_info_content " style="margin-left: 35px">
+                            <h3>{{$product->p_name}} PRODUCTS</h3>
+                            <!-- accordin  -->
+                            <div class="accordion" id="accordionExample">
+                                
+                                @foreach($spacifics as $spacific)
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="product_according_{{$spacific->id}}">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$spacific->id}}" aria-expanded="false" aria-controls="collapseTwo">
+                                    {{$spacific->title}}
+                                  </button>
+                                </h2>
+                                <div id="collapse{{$spacific->id}}" class="accordion-collapse collapse" aria-labelledby="product_according_{{$spacific->id}}" data-bs-parent="#accordionExample">
+                                  <div class="accordion-body">
+                                      <ul style="list-style: none">
+                                          <li> {!! $spacific->textContent!!}</li>
+                                      </ul>
+                                  </div>
+                                </div>
+                              </div>
+                              @endforeach
+                            </div>
+                            <!-- Accordin  -->
+                            <div class="contact-btn">
+                                <a href="{{route('product.single',$product->p_name)}}">Discover More ></a>
+                              </div>    
+                        </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
+                          <div class="our_product_info_img clearfix " style="height: 500px !important; margin: 10px auto;">
+                            <div class="image-width" style="height: 500px !important; width: 95%; margin: 10px 0; float: right;">
+                              <img src="{{asset('uploads/product/'.$product->image_3)}}" alt="" style="max-height: 100% !important;">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+            
+                    <div class="row" style="padding: 0;  margin:30px 0;">
+                      <div class="col-md-8 col-lg-8 col-xl-8 col-12 col-sm-12">
+                        <div class="our_product_info_img " style=" width: 89%; margin: 0 auto; height: 550px;">
+                            <img src="{{asset('uploads/product/'.$product->image_4)}}" alt="">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-lg-4 col-xl-4 col-12 col-sm-12">
+                        <div class="our_product_info_img " style="height: 550px;">
+                            <img src="{{asset('uploads/product/'.$product->image_5)}}" alt="" style="width: 100%;">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                </div>
+                {{-- <p> All Printed designs created by our studio. All products manufactured by Crossline. </p> --}}
+            </section>
+                <!--our products info 02 section end-->
+    @endif
+
+    @endforeach
+
 
       <!--product element-->
 

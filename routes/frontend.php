@@ -17,6 +17,8 @@ Route::controller(ViewFrontendController::class)->group(function () {
     Route::get('/about', 'aboutpage')->name('about.page');
     Route::get('/product/{id}', 'productSinglePage')->name('product.single');
     Route::get('/our/product', 'productPage')->name('our.product');
+    Route::get('/career/info', 'careerPage')->name('career.page');
+    Route::get('/our/expertise', 'expertisePage')->name('expertise');
 
 });
 

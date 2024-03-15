@@ -47,8 +47,8 @@ $pageTitle ='Single Product';
                               </h2>
                               <div id="collapse{{$spacific->id}}" class="accordion-collapse collapse" aria-labelledby="product_according_{{$spacific->id}}" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <ul>
-                                        {!!$spacific->textContent!!}
+                                    <ul style="list-style: none;">
+                                        <li>{!!$spacific->textContent!!}</li>
                                     </ul>
                                 </div>
                               </div>

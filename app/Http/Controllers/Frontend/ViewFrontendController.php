@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\CommonHeaderBanner;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\Career;
 use App\Models\ProductSpecification;
+use App\Models\ExpertisePageElement;
 use Illuminate\Http\Request;
 
 class ViewFrontendController extends Controller
@@ -31,12 +33,22 @@ class ViewFrontendController extends Controller
     }
     // product page 
     public function productPage(){
-        $product = Product::orderBy('id','desc')->get();
-        $images = ProductImage::orderBy('id','desc')->get();
-        $spacifics = ProductSpecification::orderBy('id','desc')->get();
+        $products = Product::orderBy('id','desc')->get();
 
+        return view('frontend.page.allProduct',compact('products'));
+    }
+    // career page 
+    public function careerPage(){
+        $careers = Career::where('status','=',1)->orderBy('id','desc')->get();
 
-        return view('frontend.page.allProduct',compact('product','images','spacifics'));
+        return view('frontend.page.career',compact('careers'));
+    }
+    // expertise page 
+    public function expertisePage(){
+        $expertises = ExpertisePageElement::where('status','=',1)->get();
+
+        return view('frontend.page.expertise',compact('expertises'));
+
     }
 
 }

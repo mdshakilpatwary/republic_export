@@ -18,7 +18,7 @@ $siteInfoData = siteInfoData();
               <a class="nav-link {{Route::is('about.page*')? 'active' : '' }}" href="{{route('about.page')}}">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="our_expertise.html">Our expertise</a>
+              <a class="nav-link {{Route::is('expertise*')? 'active' : '' }}" href="{{route('expertise')}}">Our expertise</a>
             </li>
             <li class="nav-item">
               <a class="nav-link {{Route::is('our.product*')? 'active' : '' }}" href="{{route('our.product')}}">Our Products</a>
@@ -30,7 +30,7 @@ $siteInfoData = siteInfoData();
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="career.html">Career</a>
+              <a class="nav-link {{Route::is('career.page*')? 'active' : '' }}" href="{{route('career.page')}}">Career</a>
             </li>
             <li class="nav-item">
               <a href="#contact" class="nav-link"><i class="fa-brands fa-linkedin-in"></i></a>

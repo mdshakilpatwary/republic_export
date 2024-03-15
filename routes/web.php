@@ -8,6 +8,8 @@ use App\Http\Controllers\Backend\PageElementController;
 use App\Http\Controllers\Backend\AboutElementController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProductElementController;
+use App\Http\Controllers\Backend\ExpertisePageController;
+use App\Http\Controllers\Backend\CareerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -115,6 +117,30 @@ Route::middleware('auth','role:Admin')->group(function () {
         Route::post('/product/spacific/update/element/{id}', 'productSpacificUpdate')->name('product.spacific.update');
         Route::get('/product/spacific/edit/{id}', 'productSpacificEdit')->name('product.spacific.edit');
         Route::get('/product/spacific/delete/{id}', 'productSpacificDelete')->name('product.spacific.delete');
+
+    });
+    //Career route part controller group------- 07
+    Route::controller(CareerController::class)->group(function () {
+        // career part 
+        Route::get('/career', 'index')->name('career');
+        Route::post('/career/store', 'store')->name('career.store');
+        Route::post('/career/update/{id}', 'update')->name('career.update');
+        Route::get('/career/manage', 'manage')->name('career.manage');
+        Route::get('/career/edit/{id}', 'edit')->name('career.edit');
+        Route::get('/career/delete/{id}', 'delete')->name('career.delete');
+        Route::get('/career/status/{id}', 'status')->name('career.status');
+
+    });
+    //Expertise page route part controller group------- 08
+    Route::controller(ExpertisePageController::class)->group(function () {
+        // career part 
+        Route::get('/expertise/element', 'index')->name('expertise.element');
+        Route::post('/expertise/element/store', 'store')->name('expertise.element.store');
+        Route::get('/expertise/element/manage', 'manage')->name('expertise.element.manage');
+        Route::post('/expertise/element/update/{id}', 'update')->name('expertise.element.update');
+        Route::get('/expertise/element/edit/{id}', 'edit')->name('expertise.element.edit');
+        Route::get('/expertise/element/delete/{id}', 'delete')->name('expertise.element.delete');
+        Route::get('/expertise/element/status/{id}', 'status')->name('expertise.element.status');
 
     });
 
