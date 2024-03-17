@@ -4,9 +4,13 @@ use App\Models\Career;
 use App\Models\PageElement;
 $products= Product::all();
 $careers= Career::where('status',1)->get();
-$clients= PageElement::where('type','=',2)->first();
-$contentArray =json_decode($clients->content, true); 
-$client =$contentArray['contentImage'];
+$client =array();
+if(PageElement::where('type','=',2)->first()){
+  $clients= PageElement::where('type','=',2)->first();
+  $contentArray =json_decode($clients->content, true); 
+  $client =$contentArray['contentImage'];
+}
+
 $siteInfo =siteInfoData();
 
 ?>
