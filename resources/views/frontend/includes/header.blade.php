@@ -10,7 +10,7 @@ $siteInfoData = siteInfoData();
         <a class="navbar-brand navbar-brand-text " href="{{route('homepage')}}">Republic Export</a>
         @endif
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border:1px solid #c4c2c2;">
-          <span class="navbar-toggler-icon"></span>
+          <span class="" style="color: #fff;"><i class="fa-solid fa-bars"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -24,16 +24,16 @@ $siteInfoData = siteInfoData();
               <a class="nav-link {{Route::is('our.product*')? 'active' : '' }}" href="{{route('our.product')}}">Our Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="csr.html">CSR</a>
+              <a class="nav-link {{Route::is('csr*')? 'active' : '' }}" href="{{route('csr')}}">CSR</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link {{Route::is('contact*')? 'active' : '' }}" href="{{route('contact')}}">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link {{Route::is('career.page*')? 'active' : '' }}" href="{{route('career.page')}}">Career</a>
             </li>
             <li class="nav-item">
-              <a href="#contact" class="nav-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://www.linkedin.com/company/republicexport/about/" class="nav-link"><i class="fa-brands fa-linkedin-in"></i></a>
             </li>
 
 

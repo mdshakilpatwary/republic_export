@@ -4,7 +4,7 @@
     <h1>Product Manage</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
         <li class="breadcrumb-item ">Product</li>
         <li class="breadcrumb-item active">Manage</li>
       </ol>

@@ -4,7 +4,7 @@
     <h1>Header Add Info</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
         <li class="breadcrumb-item">Header</li>
         <li class="breadcrumb-item ">Banner</li>
         <li class="breadcrumb-item active">Info</li>
@@ -31,8 +31,13 @@
                             <label class="col-form-label">Select Page</label>
                             <select name="page_type" class="form-select" aria-label="Default select example">
                                 <option disabled selected>-----Select-----</option>
-                                <option value="home">home</option>
-                                <option value="about">about</option>
+                                <option value="home">Home</option>
+                                <option value="about">About</option>
+                                <option value="expertise">Expertise</option>
+                                <option value="product">Product</option>
+                                <option value="csr">Csr</option>
+                                <option value="career">Career</option>
+                                <option value="contact">Contact</option>
                               </select>
                             @error('page_type')
                             <p class="text-danger">{{$message}}</p>

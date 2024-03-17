@@ -50,5 +50,15 @@ class ViewFrontendController extends Controller
         return view('frontend.page.expertise',compact('expertises'));
 
     }
+    // csr page 
+    public function csrPage(){
+        return view('frontend.page.csr');
+
+    }
+    // ccontactsr page 
+    public function contactPage(){
+        return view('frontend.page.contact');
+
+    }
 
 }

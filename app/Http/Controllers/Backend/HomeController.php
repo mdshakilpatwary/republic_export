@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use App\Models\SiteInfo;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Mail\ForgetPassMail;
+use Illuminate\Support\Facades\Mail;
 use File;
+use Str;
 class HomeController extends Controller
 {
 
@@ -17,6 +22,7 @@ class HomeController extends Controller
         return view('backend.admin_login');
 
     }
+
     // Site info function mehtod 
     public function siteInfo(){
         $siteInfo = SiteInfo::where('type','active_siteInfo')->first();
@@ -66,6 +72,62 @@ class HomeController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/admin-login');
+        return redirect('/admin');
     }
+
+
+        // forgate function method 
+        public function forgatePass(){
+            return view('backend.forgatePass');
+    
+        }
+        // forgate email part function method 
+        public function forgatePassEmail(Request $request){
+            if(User::where('email','=',$request->email)->first()){
+                $user =User::where('email','=',$request->email)->first();
+                $user->remember_token = Str::random(20);
+                $user->update();
+                Mail::to($user->email)->send(new ForgetPassMail($user));
+                return redirect()->back()->with('success','Please check your email and reset your password');
+    
+            }
+            else{
+                return back()->with('error','Oops! Your email not match please try again');
+            }
+    
+        }
+        public function resetPass($token){
+            $user =User::where('remember_token','=',$token)->first();
+            if($user){
+                return view('backend.resetPass',compact('user'));
+
+            }
+            else{
+                abort(404, 'Sorry !This page is not available for you!');
+            }
+
+
+        }
+        public function updatePass(Request $request, $token){
+            $user = User::where('remember_token','=',$token)->first();
+            $request->validate([
+               'newPassword' => 'required',
+               'confirm_password' => 'required|same:newPassword',
+           ],
+           [
+               'newPassword.require' => 'Your new password is required',
+               'confirm_password.require' => 'Your confirm password is required',
+           ]);
+           $user->password = Hash::make($request->newPassword);
+           $user->remember_token = Str::random(20);
+           $msg =$user->update();
+           if($msg){
+   
+               return redirect('/admin')->with('success','Password successfully changed');
+           }
+           else{         
+               return back()->with('error','please try again');
+           }
+        }
+
 }

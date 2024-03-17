@@ -5,3 +5,9 @@
 <script src="{{asset('frontend')}}/js/wow.js"></script>
 <script src="{{asset('frontend')}}/js/custom.js"></script>
 <script src="{{asset('frontend')}}/js/jquery.xgallerify.js"></script>
+{{-- <script src="{{asset('frontend')}}/js/floating-wpp.min.js"></script> --}}
+<script>
+    $(document).ready(function(){
+          
+});
+</script>

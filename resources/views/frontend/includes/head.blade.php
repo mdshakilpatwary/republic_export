@@ -20,5 +20,43 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/animate.css">
   <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/style.css">
+  {{-- <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/floating-wpp.min.css"> --}}
+<style>
+  .our_product_info-3 .our_product_info_content .accordion{
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .our_product_info-3 .our_product_info_content .accordion .accordion-header {
+	border-top: 1px solid #ddd;
+	padding: 10px 0;
+}
 
+.about-info-content h2 strong {
+	color: black;
+}
+#our_expertise_info-2 .our_expertise_info_content-2 ul li {
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 0px;
+}
+.csr_feature_item p {
+	color: black;
+}
+.csr_feature_3 p {
+	color: #fff;
+}
+.contact_whatsapps_button {
+	position: fixed;
+	right: 41px;
+	bottom: 45px;
+  z-index: 999;
+}
+.contact_whatsapps_button .contact_link {
+	color: #0cc143;
+	font-size: 57px;
+  z-index: 999;
+
+}
+
+</style>
 </head>

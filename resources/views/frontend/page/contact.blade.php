@@ -1,18 +1,15 @@
 <?php
-
-$siteInfoData = siteInfoData();
 use App\Models\CommonHeaderBanner;
-use App\Models\PageElement;
-$pageTitle ='Career';
+$pageTitle ='Contact Us';
 $header_banner = '';
 
 ?>
 @extends('frontend.master')
 @section('mainContent')
 <!--HEADER-->
-@if(CommonHeaderBanner::where('type','career')->first())
+@if(CommonHeaderBanner::where('type','contact')->first())
   @php
-    $headerData =CommonHeaderBanner::where('type','career')->first();
+    $headerData =CommonHeaderBanner::where('type','contact')->first();
     $header_banner = $headerData->b_image;
   
   @endphp
@@ -23,7 +20,7 @@ $header_banner = '';
           <!-- Header part start-->
           @include('frontend.includes.header')
           <!-- Header part end-->
-        @if(CommonHeaderBanner::where('type','career')->first())
+        @if(CommonHeaderBanner::where('type','contact')->first())
           <div class="wrapper">
             <div class="container">
               <div class="row">
@@ -43,7 +40,7 @@ $header_banner = '';
          @endif 
         </div>
       </div>
-      @if(CommonHeaderBanner::where('type','career')->first())
+    @if(CommonHeaderBanner::where('type','contact')->first())
       @if($headerData->b_quote !='')
       <div class="banner_coute_content" style="">
         <div class="container" >
@@ -54,40 +51,9 @@ $header_banner = '';
     @endif
       <!--/ HEADER-->
 
-      <!---->
-    <!--career content info start-->
-    <section id="career_info">
-        <div class="container">
-            <div class="row">
-                <div class="offset-md-1 offset-lg-1 col-12 col-sm-12 col-md-10 col-xl-10 col-lg-10">
-                    @if(count($careers) > 0)
-                    @foreach($careers as $career)
-                    <div class="career_info_content">
-                        <div class="career_info_title">
-                            <h3>{{$career->title}}</h3>
-                        </div>
-                        <div class="career_required_info">
-                            <p>{!!$career->textContent!!}</p>
-                        </div>
-                    </div>
-                    <hr>
-                    @endforeach
-                    @else 
-                    <p class="text-center py-5 text-dark display-5">Currently We are not offering any kind of job</p>
-                    @endif
-                   
-                <!-- support headline      -->
-                    <h6>
-                        For any spontaneous application, please send your profile to <a href="mailto:{{$siteInfoData->email}}">{{$siteInfoData->email}}</a>
-                        
-                    </h6>
-                </div>
-            </div>
-        </div>
-    
-    </section>
-        <!--career content info end-->
-    
+
+
+
 @endsection
 {{-- 
 <script type="text/javascript">

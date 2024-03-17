@@ -8,7 +8,7 @@ use App\Models\PageElement;
     <h1>Home Client Logo</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
         <li class="breadcrumb-item">Client</li>
         <li class="breadcrumb-item ">Element</li>
         <li class="breadcrumb-item active">Info</li>

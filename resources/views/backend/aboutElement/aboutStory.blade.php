@@ -8,7 +8,8 @@ use App\Models\PageElement;
     <h1>About Story</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">About</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+        <li class="breadcrumb-item">About</li>
         <li class="breadcrumb-item">Story</li>
         <li class="breadcrumb-item active">Info</li>
       </ol>

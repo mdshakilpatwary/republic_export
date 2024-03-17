@@ -4,7 +4,7 @@
     <h1>Header Edit Info</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
         <li class="breadcrumb-item">Header</li>
         <li class="breadcrumb-item">{{$banner_data->type}}</li>
         <li class="breadcrumb-item ">Banner</li>

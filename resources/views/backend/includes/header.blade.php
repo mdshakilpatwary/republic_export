@@ -6,7 +6,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('dashboard')}}" class="logo d-flex align-items-center">
-        <img src="{{asset('uploads/info/'.$infoArray->logo)}}" alt="">
+        <img src="{{asset('uploads/siteinfo/'.$infoArray->logo)}}" alt="">
         <span class="d-none d-lg-block">{{$infoArray->name}}</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -55,13 +55,6 @@
             </li>
             <li>
               <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
             </li>
             <li>
               <hr class="dropdown-divider">

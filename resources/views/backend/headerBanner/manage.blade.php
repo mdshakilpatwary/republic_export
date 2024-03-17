@@ -4,7 +4,7 @@
     <h1>Header Manage</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
         <li class="breadcrumb-item">Header</li>
         <li class="breadcrumb-item ">Banner</li>
         <li class="breadcrumb-item active">Manage</li>
@@ -39,7 +39,6 @@
                                         <th>Text-Content</th>
                                         <th>Banner image</th>
                                         <th>Quote</th>
-                                        <th>status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -61,7 +60,6 @@
                                            @endif
                                        </td>
                                        <td>{{$banner_data->b_quote}}</td>
-                                       <td>{{$banner_data->status}}</td>
                                        <td >
                                            <a href="{{route('header.info.edit',$banner_data->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
                                            <a href="{{route('header.info.delete',$banner_data->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>

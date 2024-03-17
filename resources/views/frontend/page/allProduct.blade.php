@@ -97,8 +97,8 @@ $header_banner = '';
                       </div>
                       </div>
                       <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
-                        <div class="our_product_info_img " style="height: 500px !important; margin: 10px auto;">
-                          <div class="image-width" style="height: 500px !important; width: 85%; margin: 10px auto;">
+                        <div class="our_product_info_img " style="height: 500px ; margin: 10px auto;">
+                          <div class="image-width" style="height: 500px ; width: 85%; margin: 10px auto;">
                             <img src="{{asset('uploads/product/'.$product->image_2)}}" alt="" style="max-height: 100% !important;">
                           </div>
                         </div>
@@ -111,7 +111,7 @@ $header_banner = '';
                     </div>
                     <div class="row mt-5">
                       <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
-                        <div class="our_product_info_img " style="height: 370px !important; margin: 0 auto;">
+                        <div class="our_product_info_img " style="height: 370px ; margin: 0 auto;">
                             <img src="{{asset('uploads/product/'.$product->image_3)}}" alt="" >
                         </div>
                       </div>
@@ -175,8 +175,8 @@ $header_banner = '';
                   </div>
                   </div>
                   <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
-                    <div class="our_product_info_img " style="height: 500px !important; margin: 10px auto;">
-                      <div class="image-width" style="height: 500px !important; width: 85%; margin: 10px auto;">
+                    <div class="our_product_info_img " style="height: 500px ; margin: 10px auto;">
+                      <div class="image-width" style="height: 500px ; width: 85%; margin: 10px auto;">
                         <img src="{{asset('uploads/product/'.$product->image_1)}}" alt="" style="max-height: 100% !important;">
                       </div>
                     </div>
@@ -189,7 +189,7 @@ $header_banner = '';
                 </div>
                 <div class="row mt-5">
                   <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
-                    <div class="our_product_info_img " style="height: 370px !important; margin: 0 auto;">
+                    <div class="our_product_info_img " style="height: 370px ; margin: 0 auto;">
                         <img src="{{asset('uploads/product/'.$product->image_3)}}" alt="" >
                     </div>
                   </div>
@@ -231,7 +231,7 @@ $header_banner = '';
                                 </div>
                                 <div class="row mt-5">
                                   <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
-                                    <div class="our_product_info_img " style="height: 370px !important; margin: 0 auto;">
+                                    <div class="our_product_info_img " style="height: 370px ; margin: 0 auto;">
                                         <img src="{{asset('uploads/product/'.$product->image_2)}}" alt="" >
                                     </div>
                                   </div>
@@ -271,8 +271,8 @@ $header_banner = '';
                         </div>
                         </div>
                         <div class="col-md-12 col-lg-12 col-xl-12 col-12 col-sm-12">
-                          <div class="our_product_info_img clearfix " style="height: 500px !important; margin: 10px auto;">
-                            <div class="image-width" style="height: 500px !important; width: 95%; margin: 10px 0; float: right;">
+                          <div class="our_product_info_img clearfix " style="height: 500px ; margin: 10px auto;">
+                            <div class="image-width" style="height: 500px ; width: 95%; margin: 10px 0; float: right;">
                               <img src="{{asset('uploads/product/'.$product->image_3)}}" alt="" style="max-height: 100% !important;">
                             </div>
                           </div>
@@ -305,24 +305,7 @@ $header_banner = '';
       <!--product element-->
 
 
-  <!-- hero banne content -->
-<section id="hero-banner" style="background-image: url({{asset('frontend')}}/img/FOOTER-03.jpg);">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12 col-12">
-        <div class="hero-banner-content">
-          <h3>Join the team !</h3>
-          <p>Be inspired to achieve your full potential while contributing to our collective success and growth.</p>
-          <div class="contact-btn">
-            <a href="">Join us ></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="overlay"></div>
 
-</section>
 @endsection
 {{-- 
 <script type="text/javascript">

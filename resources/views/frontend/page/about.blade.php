@@ -99,7 +99,7 @@ $header_banner = '';
 @endif
 <!-- about gallery image end -->
 <!-- about info service image start -->
-<section id="about-service" style="background-image: url(img/GRAPHIC-04.png); background-size: cover; background-repeat: no-repeat;">
+{{-- <section id="about-service" style="background-image: url(img/GRAPHIC-04.png); background-size: cover; background-repeat: no-repeat;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-12 col-12">
@@ -168,27 +168,10 @@ $header_banner = '';
         </div>
     </div>
 
-</section>
+</section> --}}
 <!-- about info service image end -->
 
-  <!-- hero banne content -->
-<section id="hero-banner" style="background-image: url({{asset('frontend')}}/img/FOOTER-03.jpg);">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12 col-12">
-        <div class="hero-banner-content">
-          <h3>Join the team !</h3>
-          <p>Be inspired to achieve your full potential while contributing to our collective success and growth.</p>
-          <div class="contact-btn">
-            <a href="">Join us ></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="overlay"></div>
 
-</section>
 @endsection
 {{-- 
 <script type="text/javascript">

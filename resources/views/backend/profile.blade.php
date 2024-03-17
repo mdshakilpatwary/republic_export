@@ -4,7 +4,7 @@
     <h1>Profile</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
         <li class="breadcrumb-item">Users</li>
         <li class="breadcrumb-item active">Profile</li>
       </ol>
@@ -21,12 +21,12 @@
             <img src="{{(Auth::user()->image == '') ? asset('uploads/user/avater.png') : asset('uploads/user/'.Auth::user()->image) }}" alt="Profile" class="rounded-circle " style="width: 120px; height: 120px;">
             <h2>{{Auth::user()->name}}</h2>
             <h3>{{Auth::user()->role}}</h3>
-            <div class="social-links mt-2">
+            {{-- <div class="social-links mt-2">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
               <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
               <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-            </div>
+            </div> --}}
           </div>
         </div>
 

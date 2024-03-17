@@ -72,7 +72,7 @@ $header_banner = '';
                 @foreach ($contentArray['contentTitle'] as $key => $title)
 
               
-                <div class="col-md-2 col-sm-6 col-12 col-xl-2">
+                <div class="col-md-3 col-sm-6 col-6 col-sm-6 col-xl-2">
                   <div class="wrap-item text-center">
                     <div class="item-img">
                       <img src="{{ asset('uploads/element/' . $contentArray['contentImage'][$key]) }}">
@@ -105,10 +105,10 @@ $header_banner = '';
           <div class="row ">
             @if($products)
             @foreach($products as $product)
-              <div class="col-md-4 col-sm-6 col-xs-12 mb-3">
+              <div class="col-md-4 col-6 col-sm-6 col-xs-12 mb-3">
                 <div class="category-sec">
                   <div class="category-img">
-                    <a href="">
+                    <a href="{{route('product.single',$product->p_name)}}">
                       <img src="{{asset('uploads/product/'.$product->p_image)}}" class="img-responsive">
                     </a>
                   </div>
@@ -161,7 +161,8 @@ $header_banner = '';
       <!---->
       <!---->
     <!-- hero banne content -->
-  <section id="hero-banner" style="background-image: url({{asset('frontend')}}/img/talents.jpg);">
+    
+  {{-- <section id="hero-banner" style="background-image: url({{asset('frontend')}}/img/talents.jpg);">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12 col-12">
@@ -177,5 +178,5 @@ $header_banner = '';
     </div>
     <div class="overlay"></div>
   
-  </section> 
+  </section>  --}}
 @endsection

@@ -213,7 +213,6 @@ h2.bnr-sub-title {
   font-size: 80px;
   text-transform: uppercase;
   padding: 20px 0px;
-  line-height: 60px;
 }
 h2.bnr-sub-title span{
   font-size: 45px !important;
@@ -1321,8 +1320,33 @@ cta
 Responsive media queries
 ************************************
 ***********************************/
+@media (min-width: 980px) and (max-width: 1199px) {
+  #our_expertise_info .our_expertise_info_content ul {
+    width: 90%;
+    height: 300px;
+    overflow: scroll;
+    box-sizing: border-box;
+  }
+  #our_expertise_info-2 .our_expertise_info_img-2 {
+    height: 600px;
+    width: 100%;
+  }
+
+  
+}
 
 @media (min-width: 768px) and (max-width: 980px) {
+
+  .bg-color {
+    min-height: 550px;
+  }
+  .header {
+
+    min-height: 550px;  
+  }
+  .banner-info {
+    padding-top: 40px;
+  }
 
   .portfolio-item figure figcaption {
     padding: 55px 30px;
@@ -1330,9 +1354,338 @@ Responsive media queries
   .padding-right-zero {
     padding-right: 15px !important;
   }
+  h2.bnr-sub-title {
+    font-size: 65px;
+    margin-top: 20px;
+  }
+  h2.bnr-sub-title span {
+    font-size: 40px !important;
+  }
+  .banner-info p {
+    font-size: 18px;
+  }
+  #about-info .about-info-img {
+    padding-bottom: 24px;
+  }
+
+  /* expertise page  */
+  #our_expertise_info .our_expertise_info_img {
+    height: 350px;
+  }
+
+  #our_expertise_info .our_expertise_info_content h3 {
+    font-size: 44px;
+    margin-bottom: 20px;
+    display: inherit;
+    text-align: center;
+    padding-top: 17px;
+  }
+  #our_expertise_info .our_expertise_info_content {
+    padding: 0 10%;
+    margin-top: 0;
+    height: 300px;
+    overflow: scroll;
+    box-sizing: border-box;
+  }
+  #our_expertise_graphic_img_info {
+    padding: 19px 0;
+    background: #d7e2de;
+  }
+  #our_expertise_graphic_img_info h3 {
+    font-size: 46px;
+  }
+  .our_expertise_graphic_img_banner {
+    height: 350px;
+    object-fit: fill;
+  }
+
+  #our_expertise_info-2 .our_expertise_info_content-2 h3 {
+    font-size: 46px;
+    margin-bottom: 21px;
+    display: inherit;
+  }
+  #our_expertise_info-2 .our_expertise_info_img-2 {
+    height: 400px;
+  }
+  #our_expertise_info-2 .our_expertise_info_content-2 {
+    padding: 0 10%;
+    margin-top: 20px;
+    height: 350px;
+    box-sizing: border-box;
+    overflow: scroll;
+  }
+  #our_expertise_info-2 .our_expertise_info_content-2 ul {
+    width: 90%;
+  }
+  .our_product_info_content h3 {
+    font-size: 35px;
+    display: inherit;
+  }
+  .contact-btn a {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+  .our_product_info_img {
+    height: 400px !important;
+  }
+  
+
 }
 
-@media (min-width: 451px) and (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 767px) {
+  /* ***home*** */
+  .banner-info {
+    padding-top: 35px;
+    margin-top: 0;
+    color: #fff;
+  }
+  .bg-color {
+    min-height: 450px;
+  }
+  .header {
+
+    min-height: 450px;  
+  }
+  h2.bnr-sub-title {
+    font-size: 50px;
+    margin-top: 20px;
+  }
+  h2.bnr-sub-title span {
+    font-size: 35px !important;
+  }
+  .banner-info p {
+    font-size: 18px;
+  }
+  .industrial-content-heading {
+    font-size: 35px;
+  }
+
+
+  .footer-logo a img {
+      width: 50%;
+    }
+  .footer-contact-line {
+    padding-top: 7px;
+  }
+  #pre-footer .heading {
+    margin-top: 16px;
+  }
+
+  /* about  */
+  #about-info .about-info-img img {
+    margin-top: 10px;
+  }
+  #about-info  {
+    padding-bottom:10px;
+  }
+  #about-info .about-info-content h3 {
+    font-size: 40px;
+   text-align: center;
+  }
+  #about-info-gallery {
+    padding: 22px 0;
+  }
+
+  /* expertise page  */
+  #our_expertise_info .our_expertise_info_content h3 {
+    font-size: 46px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: inherit;
+  }
+  #our_expertise_info .our_expertise_info_content {
+    padding: 0 10%;
+    margin-top: 20px;
+  }
+  #our_expertise_info .our_expertise_info_img {
+    height: 300px;
+  }
+  #our_expertise_graphic_img_info h3 {
+    font-size: 46px;
+    margin-top: 0px;
+    padding-bottom: 19px;
+    text-align: center;
+  }
+  .our_expertise_graphic_img_banner {
+    height: 300px;
+  }
+  #our_expertise_info-2 .our_expertise_info_img-2 {
+    height: 300px;
+  }
+  #our_expertise_info-2 .our_expertise_info_content-2 h3 {
+    font-size: 46px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: inherit;
+  }
+      /* product  */
+      .image-width {
+        width: 100% !important;
+        height: 300px !important;
+      }
+      .our_product_info_img {
+        height: 300px !important;
+      }
+      .our_product_info_img {
+        width: 100% !important;
+        margin: 10px 0 !important;
+      }
+      .our_product_info_content h3 {
+        font-size: 40px;
+        display: inherit;
+      }
+      .our_product_info_content {
+        margin: 0 !important;
+      }
+
+}
+
+@media (min-width: 780px) and (max-width: 1200px) {
+  .display_none{
+    display: none !important;
+  }
+
+}
+@media (min-width: 451px) and (max-width: 575px) {
+
+
+  /* ***home*** */
+  .banner-info {
+    padding-top: 20px;
+    margin-top: 0;
+    color: #fff;
+  }
+  .bg-color {
+    min-height: 400px;
+  }
+  .header {
+
+    min-height: 400px;  
+  }
+  h2.bnr-sub-title {
+    font-size: 40px;
+  }
+  h2.bnr-sub-title span {
+    font-size: 30px !important;
+  }
+  .banner-info p {
+    font-size: 18px;
+  }
+  .industrial-content-heading {
+    font-size: 29px;
+  }
+  .cliet-slider-btn span {
+    margin: 0 2px;
+    padding: 6px;
+    font-size: 16px;
+
+  }
+  .clint-logo-title h3 {
+    font-size: 30px;
+    padding-bottom: 0px;
+  }
+  .footer-logo {
+    text-align: center;
+  }
+  .footer-logo a img {
+    width: 30%;
+  }
+  .hide-space {
+    display: none;
+  }
+  .heading {
+    text-align: center;
+    padding: 10px 0;
+  }
+  .footer-contact-line {
+    padding-top: 0;
+    text-align: center;
+  }
+  .footer-address-line {
+    padding-top: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .client-logo-item img {
+    padding: 0 20px;
+  }
+  #client-logo {
+    margin-bottom: 0px;
+  }
+
+   /* about  */
+   #about-info .about-info-content h3 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  #about-info .about-info-img img {
+    margin-top: 10px;
+  }
+  #about-info {
+    padding-bottom: 10px;
+    padding-top: 30px;
+  
+  }
+    /* expertise page  */
+    #our_expertise_info .our_expertise_info_content h3 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+      display: inherit;
+    }
+    #our_expertise_info .our_expertise_info_img {
+      height: 250px;
+    }
+    #our_expertise_graphic_img_info {
+      padding: 13px 0;
+    }
+    .our_expertise_graphic_img_banner {
+      height: 250px;
+    }
+    #our_expertise_graphic_img_info h3 {
+      font-size: 40px;
+    }
+    #our_expertise_info-2 .our_expertise_info_img-2 {
+      height: 250px;
+    }
+    #our_expertise_info-2 .our_expertise_info_content-2 h3 {
+      font-size: 40px;
+      text-align: center;
+      display: inherit;
+    }
+    #our_expertise_info .our_expertise_info_content {
+      padding: 0 10%;
+      margin-top: 13px;
+    }
+
+    /* product  */
+    .image-width {
+      width: 100% !important;
+      height: 300px !important;
+    }
+    .our_product_info_img {
+      height: 300px !important;
+    }
+    .our_product_info_img {
+      width: 100% !important;
+      margin: 10px 0 !important;
+    }
+    .our_product_info_content h3 {
+      font-size: 40px;
+      display: inherit;
+    }
+    .our_product_info_content {
+      margin: 0 !important;
+    }
+
+    .csr_feature_item {
+      margin: 0 25px !important;
+    }
+    #csr_feature .csr_feature_item h5 {
+      font-size: 22px;
+      padding-bottom: 6px;
+    }
  
 }
 
@@ -1345,7 +1698,7 @@ Responsive media queries
     max-width: 150px;
   }
   .banner-info {
-    padding-top: 40px;
+    padding-top: 0px;
   }
   h1.bnr-title {
     font-size: 16px;
@@ -1359,7 +1712,10 @@ Responsive media queries
   
 
   .wrap-item h3 {
-    font-size: 18px;
+    font-size: 20px;
+  }
+  .wrap-item p {
+    font-size: 16x;
   }
  
   .sub-title {
@@ -1393,4 +1749,137 @@ Responsive media queries
     line-height: 22px;
     text-align: center;
   }
+
+/* ****home** */
+  .bg-color {
+    min-height: 400px;
+  }
+  .header {
+
+    min-height: 400px;  
+  }
+  .industrial-content-heading {
+    font-size: 29px;
+  }
+  .cliet-slider-btn span {
+    margin: 0 2px;
+    padding: 6px;
+    font-size: 16px;
+
+  }
+  .clint-logo-title h3 {
+    font-size: 30px;
+    padding-bottom: 0px;
+  }
+  .footer-logo {
+    text-align: center;
+  }
+  .footer-logo a img {
+    width: 50%;
+  }
+  .hide-space {
+    display: none;
+  }
+  .heading {
+    text-align: center;
+    padding: 10px 0;
+  }
+  .footer-contact-line {
+    padding-top: 0;
+    text-align: center;
+  }
+  .footer-address-line {
+    padding-top: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .client-logo-item img {
+    padding: 0 20px;
+  }
+  #client-logo {
+    margin-bottom: 0px;
+  }
+
+
+  /* about  */
+  #about-info .about-info-content h3 {
+    font-size: 35px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  #about-info .about-info-img img {
+    width: 220px;
+    margin-top: 10px;
+  }
+  #about-info {
+    padding-bottom: 10px;
+    padding-top: 30px;
+  
+  }
+
+  /* expertise page  */
+  #our_expertise_info .our_expertise_info_content h3 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: inherit;
+  }
+  #our_expertise_info .our_expertise_info_img {
+    height: 250px;
+  }
+  #our_expertise_graphic_img_info {
+    padding: 13px 0;
+  }
+  .our_expertise_graphic_img_banner {
+    height: 250px;
+  }
+  #our_expertise_graphic_img_info h3 {
+    font-size: 40px;
+  }
+  #our_expertise_info-2 .our_expertise_info_img-2 {
+    height: 250px;
+  }
+  #our_expertise_info-2 .our_expertise_info_content-2 h3 {
+    font-size: 40px;
+    text-align: center;
+    display: inherit;
+  }
+  #our_expertise_info .our_expertise_info_content {
+    padding: 0 10%;
+    margin-top: 13px;
+  }
+
+  /* product  */
+  .our_product_info_content h3 {
+    font-size: 35px;
+    padding: 10px 0;
+    display: inherit;
+  }
+  .contact-btn a {
+    font-size: 14px;
+  }
+  .our_product_info_content {
+    padding-left: 24px;
+  }
+  .image-width {
+    width: 100% !important;
+    height: 300px !important;
+  }
+  .our_product_info_img {
+    height: 300px !important;
+  }
+  .our_product_info_img {
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+
+  .csr_feature_item {
+    margin: 0 25px !important;
+  }
+  #csr_feature .csr_feature_item h5 {
+    font-size: 22px;
+    padding-bottom: 6px;
+  }
+
+
 }

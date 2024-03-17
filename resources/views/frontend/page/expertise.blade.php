@@ -78,7 +78,7 @@ $header_banner = '';
                 <div class="col-md-6 col-xl-6 col-lg-6 col-12-col-sm-12">
                     <div class="our_expertise_info_content">
                         <h3>{{$expertise->title}}</h3>
-                        <ul style="list-style: none;">
+                        <ul style="list-style: none; padding: 0;">
                             <li>{!!$expertise->text_content!!}</li>  
                         </ul>
                     </div>
@@ -117,7 +117,7 @@ $header_banner = '';
                     <div class="col-md-6 col-xl-6 col-lg-6 col-12-col-sm-12">
                         <div class="our_expertise_info_content " >
                             <h3 style="color: #fff;">{{$expertise->title}}</h3>
-                            <ul style="list-style: none;">
+                            <ul style="list-style: none; padding: 0;">
                                 <li>{!!$expertise->text_content!!}</li>  
                             </ul>
                         </div>
@@ -163,7 +163,7 @@ $header_banner = '';
                 <div class="col-md-6 col-xl-6 col-lg-6 col-12-col-sm-12">
                     <div class="our_expertise_info_content-2">
                         <h3>{{$expertise->title}}</h3>
-                        <ul style="list-style: none;">
+                        <ul style="list-style: none; padding: 0;">
                             <li>{!!$expertise->text_content!!}</li>  
                         </ul>
                         
@@ -207,7 +207,7 @@ $header_banner = '';
                 <div class="col-md-6 col-xl-6 col-lg-6 col-12-col-sm-12">
                     <div class="our_expertise_info_content-2">
                         <h3>{{$expertise->title}}</h3>
-                        <ul style="list-style: none;">
+                        <ul style="list-style: none; padding: 0;">
                             <li>{!!$expertise->text_content!!}</li>  
                         </ul>
                         

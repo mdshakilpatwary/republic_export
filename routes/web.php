@@ -38,7 +38,11 @@ Route::get('/dashboard', function () {
 Route::middleware('guest')->group(function () {
     
     Route::controller(HomeController::class)->group(function () {
-        Route::get('/admin-login', 'login')->name('admin.login');
+        Route::get('/admin', 'login')->name('admin.login');
+        Route::get('/forget/password', 'forgatePass')->name('forgate.password');
+        Route::post('/forget/password/email', 'forgatePassEmail')->name('forgate.password.email');
+        Route::get('/reset/password/{id}', 'resetPass')->name('reset.password');
+        Route::post('/update/password/{id}', 'updatePass')->name('update.password');
     });
     
 });

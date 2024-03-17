@@ -1,3 +1,6 @@
+<?php
+$siteInfo =siteInfoData();
+?>
 @include('backend.includes.head')
 
 <body>
@@ -21,10 +24,10 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>Republic Export</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>{{$siteInfo->name}}</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      Develop by <a href="">BinaryBite</a>
+      Develop by <a href="https://binarytobyte.com">BinaryBite</a>
     </div>
   </footer><!-- End Footer -->
 

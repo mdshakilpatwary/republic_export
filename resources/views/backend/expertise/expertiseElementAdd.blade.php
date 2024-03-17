@@ -13,7 +13,7 @@
     <h1>Expertise Element</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
         <li class="breadcrumb-item">Expertise</li>
         <li class="breadcrumb-item">Element</li>
         <li class="breadcrumb-item active">Add</li>
