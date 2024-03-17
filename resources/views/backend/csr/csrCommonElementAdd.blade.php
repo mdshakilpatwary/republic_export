@@ -64,7 +64,7 @@ use App\Models\CsrPageElement;
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                          <label for="inputNumber" class=" col-form-label">Product Image</label>
+                          <label for="inputNumber" class=" col-form-label">Banner Image <span style="color: #6b6868">(resolution 1200x600 )</span></label>
                           <img src="{{asset('uploads/csr/'.$common->image)}}" alt="" class="p_change_image mb-2" style="width: 150px; height: 100px; display:block;">
                           <input class="form-control p_file_image" type="file" id="formFile" name="image" >
                           @error('image')
@@ -72,8 +72,9 @@ use App\Models\CsrPageElement;
                           @enderror
                         </div>
       
-
-                        <button type="submit" class="btn btn-success btn-lg">Update</button>
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Save</button>
+                        </div>
                     </div>
                     
                   </div>
@@ -113,7 +114,7 @@ use App\Models\CsrPageElement;
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                          <label for="inputNumber" class=" col-form-label">Product Image</label>
+                          <label for="inputNumber" class=" col-form-label">Banner Image <span style="color: #6b6868">(resolution 1200x600 )</span></label>
                           <img src="" alt="" class="p_change_image mb-2" style="width: 150px; height: 100px; display:block;">
                           <input class="form-control p_file_image" type="file" id="formFile" name="image" >
                           @error('image')
@@ -121,8 +122,9 @@ use App\Models\CsrPageElement;
                           @enderror
                         </div>
       
-
-                        <button type="submit" class="btn btn-success btn-lg">Insert</button>
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Add</button>
+                        </div>
                     </div>
                     
                   </div>

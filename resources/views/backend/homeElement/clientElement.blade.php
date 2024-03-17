@@ -61,7 +61,7 @@ use App\Models\PageElement;
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <label for="elementImage">Client Logo</label>
+                                                    <label for="elementImage">Client Logo <span style="color: #6b6868">(resolution 300x250 )</span></label>
                                                     <input type="hidden" id="elementImageName" name="{{$contentArray['contentImage'][$key] ==null ? '' : 'elementImage' }}[]" value="{{$contentArray['contentImage'][$key]}}">
                                                     <input type="file" name="elementImage[]" id="elementImage" class="form-control"  {{$contentArray['contentImage'][$key] ==null ? 'required' : '' }} >
                                                     <div class="invalid-feedback">Please input your png image</div>
@@ -87,7 +87,9 @@ use App\Models\PageElement;
                                 </div>
                             </div>
     
-                            <button type="submit" id="submit_btn" class="btn btn-success btn-lg">Save Change</button>
+                            <div class="submit_button_align" style="text-align: right;">
+                                <button type="submit" class="btn btn-success btn-lg">Save</button>
+                              </div>                            
                         </div>
                         
                       </div>
@@ -125,7 +127,7 @@ use App\Models\PageElement;
                                                 </td>
                                                 <td>
                                                     <div class="form-group">
-                                                        <label for="elementImage">Client Logo</label>
+                                                        <label for="elementImage">Client Logo <span style="color: #6b6868">(resolution 300x250 )</span></label>
                                                         <input type="file" name="elementImage[]" class="form-control" required>
                                                         <div class="invalid-feedback">Please input your png image</div>
                                                     </div>
@@ -146,7 +148,9 @@ use App\Models\PageElement;
                                     </div>
                                 </div>
         
-                                <button type="submit" id="submit_btn" class="btn btn-success btn-lg">Insert</button>
+                                <div class="submit_button_align" style="text-align: right;">
+                                    <button type="submit" class="btn btn-success btn-lg">Add</button>
+                                </div>
                             </div>
                             
                         </div>

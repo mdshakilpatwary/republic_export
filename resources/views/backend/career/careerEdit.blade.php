@@ -58,8 +58,9 @@ use App\Models\PageElement;
                                         
                                     </div>
                                 </div>
-        
-                                <button type="submit" id="submit_btn" class="btn btn-success btn-lg">Update</button>
+                                <div class="submit_button_align" style="text-align: right;">
+                                  <button type="submit" class="btn btn-success btn-lg">Update</button>
+                                </div>        
                             </div>
                             
                         </div>

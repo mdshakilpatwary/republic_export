@@ -13,7 +13,7 @@
       <li class="nav-heading">Pages Content</li>
       <li class="nav-item ">
         <a class="nav-link collapsed " data-bs-target="#components-nav-1" data-bs-toggle="collapse" href="#" style="background:{{ Route::is('header.info*') || Route::is('header.info.manage*')||Route::is('header.info.edit*')? '#f6f9ff' : '' }} ; ">
-          <i class="bi bi-menu-button-wide"></i><span>Header Info</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide-fill"></i><span>Header Info</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav-1" class="nav-content collapse {{ Route::is('header.info*') || Route::is('header.info.manage*')||Route::is('header.info.edit*')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
  
@@ -33,13 +33,13 @@
 
       <li class="nav-item ">
         <a class="nav-link collapsed " data-bs-target="#components-nav-2" data-bs-toggle="collapse" href="#" style="background:{{ Route::is('home.industrial.element*') || Route::is('home.client.element*')? '#f6f9ff' : '' }} ; ">
-          <i class="bi bi-menu-button-wide"></i><span>Home page</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-house-add"></i><span>Home page</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav-2" class="nav-content collapse {{ Route::is('home.industrial.element*') || Route::is('home.client.element*')? 'show' : '' }}  " data-bs-parent="#sidebar-nav">
  
           <li>
             <a href="{{route('home.industrial.element')}}" class="{{ Route::is('home.industrial.element')? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>industrial Element</span>
+              <i class="bi bi-circle"></i><span>Industrial Element</span>
             </a>
           </li>
           <li>
@@ -52,7 +52,7 @@
 
       <li class="nav-item ">
         <a class="nav-link collapsed " data-bs-target="#components-nav-3" data-bs-toggle="collapse" href="#" style="background:{{ Route::is('about.story*')? '#f6f9ff' : '' }} ; ">
-          <i class="bi bi-menu-button-wide"></i><span>About page</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-postcard"></i><span>About page</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav-3" class="nav-content collapse {{ Route::is('about.story*')? 'show' : '' }}" data-bs-parent="#sidebar-nav">
  
@@ -65,7 +65,7 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link collapsed " data-bs-target="#components-nav-8" data-bs-toggle="collapse" href="#" style="background:{{ Route::is('career*') || Route::is('career.manage*') ||Route::is('career.edit*')? '#f6f9ff' : '' }} ; ">
-          <i class="bi bi-menu-button-wide"></i><span>Career page</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-wallet-fill"></i><span>Career page</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav-8" class="nav-content collapse {{ Route::is('career*') || Route::is('career.manage*') ||Route::is('career.edit*')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
  
@@ -83,7 +83,7 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link collapsed " data-bs-target="#components-nav-9" data-bs-toggle="collapse" href="#" style="background:{{  Route::is('expertise.element*') || Route::is('expertise.element.manage*') ||Route::is('expertise.element.edit*')? '#f6f9ff' : '' }} ; ">
-          <i class="bi bi-menu-button-wide"></i><span>Expertise page</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bounding-box"></i><span>Expertise page</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav-9" class="nav-content collapse {{ Route::is('expertise.element*') || Route::is('expertise.element.manage*') ||Route::is('expertise.element.edit*')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
  
@@ -101,7 +101,7 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link collapsed " data-bs-target="#components-nav-10" data-bs-toggle="collapse" href="#" style="background:{{  Route::is('csr.common*') || Route::is('csr.raw_material*') ||Route::is('csr.pre_production*')||Route::is('csr.production*')? '#f6f9ff' : '' }} ; ">
-          <i class="bi bi-menu-button-wide"></i><span>Csr page</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-card-heading"></i><span>Csr page</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav-10" class="nav-content collapse {{ Route::is('csr.common*') || Route::is('csr.pre_production*') ||Route::is('csr.raw_material*')||Route::is('csr.production*')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
  
@@ -135,7 +135,7 @@
 
       <li class="nav-item ">
         <a class="nav-link collapsed " data-bs-target="#components-nav-4" data-bs-toggle="collapse" href="#" style="background: {{ Route::is('product') || Route::is('product.manage')||Route::is('product.edit')? '#f6f9ff' : '' }} ;">
-          <i class="bi bi-menu-button-wide"></i><span>Product</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-box2-fill"></i><span>Product</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav-4" class="nav-content collapse {{ Route::is('product') || Route::is('product.manage')||Route::is('product.edit')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
  
@@ -155,7 +155,7 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link collapsed " data-bs-target="#components-nav-5" data-bs-toggle="collapse" href="#" style="background:{{ Route::is('product.image.element') || Route::is('product.manage.image.element')? '#f6f9ff' : '' }} ; ">
-          <i class="bi bi-menu-button-wide"></i><span>Product Image</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-images"></i><span>Product Image</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav-5" class="nav-content collapse {{ Route::is('product.image.element') || Route::is('product.manage.image.element')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
  
@@ -173,7 +173,7 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link collapsed " data-bs-target="#components-nav-6" data-bs-toggle="collapse" href="#" style="background:{{ Route::is('product.spacific.element*') || Route::is('product.manage.spacific.element*') ||Route::is('product.spacific.edit*')? '#f6f9ff' : '' }} ; ">
-          <i class="bi bi-menu-button-wide"></i><span>Product Spacifications</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-ui-radios"></i><span>Product Spacifications</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav-6" class="nav-content collapse {{ Route::is('product.spacific.element*') || Route::is('product.manage.spacific.element*') ||Route::is('product.spacific.edit*')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
  
@@ -191,14 +191,7 @@
         </ul>
       </li>
       
-      <li class="nav-heading">Pages</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
+    <!-- End Profile Page Nav -->
     </ul>
 
   </aside>

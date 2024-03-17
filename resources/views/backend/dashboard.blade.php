@@ -12,9 +12,12 @@
 
   <section class="section dashboard">
     <div class="row">
-
-      <!-- Left side columns -->
-
+      <div class="col-md-4 col-xl-4 col-lg-4 col-6 col-sm-6">
+        <div class="card">
+          
+        </div>
+      </div>
+      
 
     </div>
   </section>

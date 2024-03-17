@@ -64,7 +64,7 @@
                         <div class="row">
                             <div class="col-md-6 col-12 col-xl-6">
                                 <div class="form-group mb-3">
-                                  <label for="inputNumber" class=" col-form-label">Product Image</label>
+                                  <label for="inputNumber" class=" col-form-label">Product Image <span style="color: #6b6868">(resolution 400x350 )</span></label>
                                   <img src="{{asset('uploads/product/'.$product->p_image)}}" alt="" class="p_change_image mb-2" style="width: 150px; height: 100px; display:block;">
                                   <input class="form-control p_file_image" type="file" id="formFile" name="product_image" >
                                   @error('product_image')
@@ -74,7 +74,7 @@
                             </div>
                             <div class="col-md-6 col-12 col-xl-6">
                                 <div class="form-group mb-3">
-                                  <label for="inputNumber" class=" col-form-label">Banner Image</label>
+                                  <label for="inputNumber" class=" col-form-label">Banner Image <span style="color: #6b6868">(resolution 1200x600 )</span></label>
                                   <img src="{{asset('uploads/product/'.$product->p_banner)}}" alt="" class="change_image mb-2" style="width: 150px; height: 100px; display:block;">
                                   <input class="form-control file_image" type="file" id="formFile" name="product_banner" >
                                   @error('product_banner')
@@ -83,11 +83,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pt-5 pb-2">This image for product page design</div>
+                        <div class="pt-5 pb-2">This Image For Product Page Layout Design</div>
                         <div class="row">
                           <div class="col-md-6 col-12 col-xl-6">
                               <div class="form-group mb-3">
-                                <label for="inputNumber" class=" col-form-label">Image 01</label>
+                                <label for="inputNumber" class=" col-form-label">Image 01 <span style="color: #6b6868">(resolution 550x600 )</span></label>
                                 <img src="{{asset('uploads/product/'.$product->image_1)}}" alt="" class="p_change_image_1 mb-2" style="width: 150px; height: 100px; display:block;">
                                 <input class="form-control p_file_image_1" type="file" id="formFile" name="image_1" >
                                 @error('product_image_1')
@@ -97,7 +97,7 @@
                           </div>
                           <div class="col-md-6 col-12 col-xl-6">
                               <div class="form-group mb-3">
-                                <label for="inputNumber" class=" col-form-label">Image 02</label>
+                                <label for="inputNumber" class=" col-form-label">Image 02 <span style="color: #6b6868">(resolution 550x600 )</span></label>
                                 <img src="{{asset('uploads/product/'.$product->image_2)}}" alt="" class="p_change_image_2 mb-2" style="width: 150px; height: 100px; display:block;">
                                 <input class="form-control p_file_image_2" type="file" id="formFile" name="image_2" >
                                 @error('image_2')
@@ -107,7 +107,7 @@
                           </div>
                           <div class="col-md-6 col-12 col-xl-6">
                               <div class="form-group mb-3">
-                                <label for="inputNumber" class=" col-form-label">Image 03</label>
+                                <label for="inputNumber" class=" col-form-label">Image 03 <span style="color: #6b6868">(resolution 500x400 )</span></label>
                                 <img src="{{asset('uploads/product/'.$product->image_3)}}" alt="" class="p_change_image_3 mb-2" style="width: 150px; height: 100px; display:block;">
                                 <input class="form-control p_file_image_3" type="file" id="formFile" name="image_3" >
                                 @error('image_3')
@@ -117,7 +117,7 @@
                           </div>
                           <div class="col-md-6 col-12 col-xl-6">
                               <div class="form-group mb-3">
-                                <label for="inputNumber" class=" col-form-label">Image 04</label>
+                                <label for="inputNumber" class=" col-form-label">Image 04 <span style="color: #6b6868">(resolution 700x500 )</span></label>
                                 <img src="{{asset('uploads/product/'.$product->image_4)}}" alt="" class="p_change_image_4 mb-2" style="width: 150px; height: 100px; display:block;">
                                 <input class="form-control p_file_image_4" type="file" id="formFile" name="image_4" >
                                 @error('image_4')
@@ -127,7 +127,7 @@
                           </div>
                           <div class="col-md-6 col-12 col-xl-6">
                               <div class="form-group mb-3">
-                                <label for="inputNumber" class=" col-form-label">Image 05</label>
+                                <label for="inputNumber" class=" col-form-label">Image 05 <span style="color: #6b6868">(resolution 350x500 )</span></label>
                                 <img src="{{asset('uploads/product/'.$product->image_5)}}" alt="" class="p_change_image_5 mb-2" style="width: 150px; height: 100px; display:block;">
                                 <input class="form-control p_file_image_5" type="file" id="formFile" name="image_5" >
                                 @error('image_5')
@@ -136,7 +136,9 @@
                               </div>
                           </div>
                       </div>
-                        <button type="submit" class="btn btn-success btn-lg">Insert</button>
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Update</button>
+                        </div>
                     </div>
                     
                   </div>

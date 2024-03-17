@@ -62,8 +62,9 @@
                             @enderror
                         </div>
       
-                        
-                        <button type="submit" class="btn btn-success btn-lg">Update</button>
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Update</button>
+                        </div>                        
                     </div>
                     
                   </div>

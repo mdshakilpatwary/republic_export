@@ -63,7 +63,7 @@ $header_banner = '';
                 <div class="col-md-12 col-xl-12 col-lg-12 col-12 col-sm-12">
                     <div class="csr_info_content">
                         <h3>{{$csrCommon->title}}</h3>
-                        <p>
+                        <p class="common_p">
                             {!!$csrCommon->text_content!!}
                         </p>
                     </div>
@@ -86,46 +86,48 @@ $header_banner = '';
     $titleRaw = json_decode($csrraw->title, true) ;
     $contentRaw = json_decode($csrraw->text_content, true) ;
 @endphp
-    <section id="csr_feature">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-xl-12 col-12 col-sm-12">
-                    <h3>Raw Materials</h3>
-                </div>
-                <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
-                    <div class="csr_feature_item">
-                        <h5>{{$titleRaw[0][0]}}</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            {!!$contentRaw[0][0]!!}                            
-                        </ul>
-    
+    @if($titleRaw[0][0] !='' || $titleRaw[0][1] !='' || $titleRaw[0][2] !='')
+        <section id="csr_feature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xl-12 col-12 col-sm-12">
+                        <h3>Raw Materials</h3>
                     </div>
-                </div>
-                <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
-                    <div class="csr_feature_item">
-                        <h5>{{$titleRaw[0][1]}}</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            {!!$contentRaw[0][1]!!}                            
-                        </ul>
-    
+                    <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
+                        <div class="csr_feature_item">
+                            <h5>{{$titleRaw[0][0]}}</h5>
+                            <ul style="list-style: none; padding: 0;">
+                                {!!$contentRaw[0][0]!!}                            
+                            </ul>
+        
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
-                    <div class="csr_feature_item">
-                        <h5>{{$titleRaw[0][2]}}</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            {!!$contentRaw[0][2]!!}                            
-                        </ul>
-    
+                    <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
+                        <div class="csr_feature_item">
+                            <h5>{{$titleRaw[0][1]}}</h5>
+                            <ul style="list-style: none; padding: 0;">
+                                {!!$contentRaw[0][1]!!}                            
+                            </ul>
+        
+                        </div>
                     </div>
-                </div>
+                    <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
+                        <div class="csr_feature_item">
+                            <h5>{{$titleRaw[0][2]}}</h5>
+                            <ul style="list-style: none; padding: 0;">
+                                {!!$contentRaw[0][2]!!}                            
+                            </ul>
+        
+                        </div>
+                    </div>
 
-    
+        
+                </div>
+        
             </div>
-    
-        </div>
-    
-    </section>
+        
+        </section>
+    @endif
 @endif
         <!--Csr content feature end-->
         <!--Csr content feature 02 start-->
@@ -135,50 +137,53 @@ $header_banner = '';
     $titlepre = json_decode($csrpre->title, true) ;
     $contentpre = json_decode($csrpre->text_content, true) ;
 @endphp
-    <section id="csr_feature" class="csr_feature_2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-xl-12 col-12 col-sm-12">
-                    <h3>PRE PRODUCTION</h3>
-                </div>
-                <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
-                    <div class="csr_feature_item">
-                        <h5>{{$titlepre[0][0]}}</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            {!!$contentpre[0][0]!!}                            
-                        </ul>
-    
+    @if($titlepre[0][0] !='' || $titlepre[0][1] !='' || $titlepre[0][2] !='')
+
+        <section id="csr_feature" class="csr_feature_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xl-12 col-12 col-sm-12">
+                        <h3>PRE PRODUCTION</h3>
                     </div>
-                </div>
-                <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
-                    <div class="csr_feature_item">
-                        <h5>{{$titlepre[0][1]}}</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            {!!$contentpre[0][1]!!}                            
-                        </ul>
-    
+                    <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
+                        <div class="csr_feature_item">
+                            <h5>{{$titlepre[0][0]}}</h5>
+                            <ul style="list-style: none; padding: 0;">
+                                {!!$contentpre[0][0]!!}                            
+                            </ul>
+        
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
-                    <div class="csr_feature_item">
-                        <h5>{{$titlepre[0][2]}}</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            {!!$contentpre[0][2]!!}                            
-                        </ul>
-    
+                    <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
+                        <div class="csr_feature_item">
+                            <h5>{{$titlepre[0][1]}}</h5>
+                            <ul style="list-style: none; padding: 0;">
+                                {!!$contentpre[0][1]!!}                            
+                            </ul>
+        
+                        </div>
                     </div>
+                    <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
+                        <div class="csr_feature_item">
+                            <h5>{{$titlepre[0][2]}}</h5>
+                            <ul style="list-style: none; padding: 0;">
+                                {!!$contentpre[0][2]!!}                            
+                            </ul>
+        
+                        </div>
+                    </div>
+                    {{-- <div class="col-md-12 col-xl-12 col-12 col-sm-12">
+                        <div class="contact-btn text-center" >
+                            <a href="">Discover More About 3D ></a>
+                        </div>
+                    </div> --}}
+        
                 </div>
-                {{-- <div class="col-md-12 col-xl-12 col-12 col-sm-12">
-                    <div class="contact-btn text-center" >
-                        <a href="">Discover More About 3D ></a>
-                      </div>
-                </div> --}}
-    
+        
             </div>
-    
-        </div>
-    
-    </section>
+        
+        </section>
+    @endif
 @endif
         <!--Csr content feature02 end-->
         <!--Csr content feature 03 start-->
@@ -188,45 +193,48 @@ $header_banner = '';
     $titlep = json_decode($csrp->title, true) ;
     $contentp = json_decode($csrp->text_content, true) ;
 @endphp
-    <section id="csr_feature" class="csr_feature_3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-xl-12 col-12 col-sm-12">
-                    <h3>PRODUCTION</h3>
-                </div>
-                <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
-                    <div class="csr_feature_item">
-                        <h5>{{$titlep[0][0]}}</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            {!!$contentp[0][0]!!}                            
-                        </ul>
-    
+    @if($titlep[0][0] !='' || $titlep[0][1] !='' || $titlep[0][2] !='')
+
+        <section id="csr_feature" class="csr_feature_3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xl-12 col-12 col-sm-12">
+                        <h3>PRODUCTION</h3>
                     </div>
-                </div>
-                <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
-                    <div class="csr_feature_item">
-                        <h5>{{$titlep[0][1]}}</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            {!!$contentp[0][1]!!}                            
-                        </ul>
-    
+                    <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
+                        <div class="csr_feature_item">
+                            <h5>{{$titlep[0][0]}}</h5>
+                            <ul style="list-style: none; padding: 0;">
+                                {!!$contentp[0][0]!!}                            
+                            </ul>
+        
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
-                    <div class="csr_feature_item">
-                        <h5>{{$titlep[0][2]}}</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            {!!$contentp[0][2]!!}                            
-                        </ul>
-    
+                    <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
+                        <div class="csr_feature_item">
+                            <h5>{{$titlep[0][1]}}</h5>
+                            <ul style="list-style: none; padding: 0;">
+                                {!!$contentp[0][1]!!}                            
+                            </ul>
+        
+                        </div>
                     </div>
+                    <div class="col-md-4 col-xl-4 col-lg-4 col-12 col-sm-6">
+                        <div class="csr_feature_item">
+                            <h5>{{$titlep[0][2]}}</h5>
+                            <ul style="list-style: none; padding: 0;">
+                                {!!$contentp[0][2]!!}                            
+                            </ul>
+        
+                        </div>
+                    </div>
+        
                 </div>
-    
+        
             </div>
-    
-        </div>
-    
-    </section>
+        
+        </section>
+    @endif 
 @endif
         <!--Csr content feature03 end-->
 

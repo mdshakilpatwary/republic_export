@@ -20,7 +20,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">All Product Image </h5>
-                <a href="{{route('product.image.element')}}" class="btn btn-sm btn-info">Add</a>
+                <a href="{{route('product.image.element')}}" class="btn btn-sm btn-success">Add</a>
   
                 <!-- Table with stripped rows -->
                     

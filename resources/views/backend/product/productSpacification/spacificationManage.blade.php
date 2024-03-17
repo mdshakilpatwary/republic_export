@@ -20,7 +20,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">All Product Spacification </h5>
-                <a href="{{route('product.spacific.element')}}" class="btn btn-sm btn-info">Add</a>
+                <a href="{{route('product.spacific.element')}}" class="btn btn-sm btn-success">Add</a>
   
                 <!-- Table with stripped rows -->
                     
@@ -50,8 +50,8 @@
                                        <td>{!!$specific->textContent!!}</td>
                                        
                                        <td >
-                                           <a href="{{route('product.spacific.edit',$specific->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
-                                           <a href="{{route('product.spacific.delete',$specific->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                         <a href="{{route('product.spacific.delete',$specific->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                           <a href="{{route('product.spacific.edit',$specific->id)}}" class="btn btn-sm btn-outline-success">Edit</a>
                                        </td>
                                    </tr>
                                @endforeach

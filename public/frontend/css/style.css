@@ -602,6 +602,16 @@ hero banner
   letter-spacing: 1px;
 }
 /********** About page css end******** */
+.csr_info_content .common_p{
+  color: black !important;
+}
+.csr_info_content strong{
+  color: black !important;
+}
+.csr_info_content{
+  color: black !important;
+  font-family: robot !important;
+}
 /********** our expertise page css start******** */
 #our_expertise_info{
   background: #fafafa;
@@ -738,7 +748,18 @@ hero banner
   color: #fff !important;
 }
 /* our expertise info 3 end */
-
+#our_product_info .accordion .accordion-body ul li {
+	text-transform: capitalize !important;
+  font-weight: 300;
+  font-size: 16px ;
+}
+#our_product_info .accordion-item .accordion-header button{
+  text-transform: capitalize !important;
+  color: red; 
+  font-family: roboto !important;
+  font-size: 17px !important;
+  font-weight:400;
+}
 /********** our expertise page css end******** */
 /********** our product page css start******** */
 #our_product_info{
@@ -1113,6 +1134,7 @@ color: #67696c;
 /********** single page css start******** */
 .single_product_info_content{
   padding-top: 40px;
+  color: white;
 }
 #our_product_info .single_product_info_content p{
   font-size: 16px;
@@ -1139,6 +1161,7 @@ color: #67696c;
 }
 #single_product_page_img .single_product_img .photo img{
 } */
+
 /********** single page css end******** */
 
 /********** contact page css start******** */
@@ -1537,6 +1560,9 @@ Responsive media queries
       .our_product_info_content {
         margin: 0 !important;
       }
+      .single_product_info_content {
+        padding-top: 7px;
+      }
 
 }
 
@@ -1686,7 +1712,9 @@ Responsive media queries
       font-size: 22px;
       padding-bottom: 6px;
     }
- 
+    .single_product_info_content {
+      padding-top: 7px;
+    }
 }
 
 @media (min-width: 20px) and (max-width: 450px) {
@@ -1881,5 +1909,7 @@ Responsive media queries
     padding-bottom: 6px;
   }
 
-
+  .single_product_info_content {
+    padding-top: 7px;
+  }
 }

@@ -67,14 +67,16 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="inputNumber" class=" col-form-label">Banner Image</label>
+                            <label for="inputNumber" class=" col-form-label">Banner Image <span style="color: #6b6868">(resolution 1200x600 )</span></label>
                             <img src="{{asset('uploads/banner/'.$banner_data->b_image)}}" alt="" class="change_image mb-2" style="width: 200px; height: 150px; display:block;">
                             <input class="form-control file_image" type="file" id="formFile" name="b_image">
                             @error('b_image')
                             <p class="text-danger">{{$message}}</p> 
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-success btn-lg">Update</button>
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Update</button>
+                        </div>
                     </div>
                     
                   </div>

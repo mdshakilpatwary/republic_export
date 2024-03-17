@@ -42,12 +42,12 @@ use App\Models\PageElement;
                             <div class="row">
                                 <div class="col-md-12 col-xl-12 col-lg12 col-12 col-sm-12">
                                     <div class="form-group pb-3">
-                                        <label for="">Single Story image</label>
+                                        <label for="">Single Story image <span style="color: #6b6868">(resolution 400x350 )</span></label>
                                         <input type="file" name="singleImage" id="" class="form-control">
                                         <img src="{{ asset('uploads/about/' . $elements->image) }}" alt="" width="100">
 
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group py-3">
                                         <label for="">Story Content</label>
                                         <textarea  id="editor" class=" form-control" name="storyContent"  cols="5" rows="5">
                                             {!!$contentArray['storyText']!!}
@@ -61,12 +61,12 @@ use App\Models\PageElement;
                                         <tr class="row_one">
                                             <td>
                                                 <div class="form-group">
-                                                    <label for="elementImage">Story Multiple Image</label>
+                                                    <label for="elementImage">Story Multiple Image <span style="color: #6b6868">(resolution 400x350 )</span></label>
                                                     <input type="hidden" id="elementImageName" name="{{$img ==null ? '' : 'elementImage' }}[]" value="{{$img}}">
                                                     <input type="file" name="elementImage[]" id="elementImage" class="form-control"  {{$img ==null ? 'required' : '' }} multiple>
                                                     <div class="invalid-feedback">Please input your png image</div>
                                     
-                                                    <img src="{{ asset('uploads/about/' . $img) }}" alt="" width="100">
+                                                    <img src="{{ asset('uploads/about/' . $img) }}" alt="" width="120">
                                                 </div>
                                             </td>
                                             
@@ -86,8 +86,9 @@ use App\Models\PageElement;
                                     
                                 </div>
                             </div>
-    
-                            <button type="submit" id="submit_btn" class="btn btn-success btn-lg">Save Change</button>
+                            <div class="submit_button_align" style="text-align: right;">
+                                <button type="submit" class="btn btn-success btn-lg">Save</button>
+                              </div>
                         </div>
                         
                       </div>
@@ -129,7 +130,7 @@ use App\Models\PageElement;
         
                                                 <td>
                                                     <div class="form-group">
-                                                        <label for="elementImage">Select Multiple Image</label>
+                                                        <label for="elementImage">Select Multiple Image <span style="color: #6b6868">(resolution 400x350)</span></label>
                                                         <input type="file" name="elementImage[]" class="form-control" multiple required>
                                                         <div class="invalid-feedback">Please input your png image</div>
                                                     </div>
@@ -149,8 +150,9 @@ use App\Models\PageElement;
                                         
                                     </div>
                                 </div>
-        
-                                <button type="submit" id="submit_btn" class="btn btn-success btn-lg">Insert</button>
+                                <div class="submit_button_align" style="text-align: right;">
+                                    <button type="submit" class="btn btn-success btn-lg">Add</button>
+                                  </div>        
                             </div>
                             
                         </div>

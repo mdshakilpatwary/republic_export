@@ -19,7 +19,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">All Product </h5>
-                <a href="{{route('product')}}" class="btn btn-sm btn-info">Add</a>
+                <a href="{{route('product')}}" class="btn btn-sm btn-success">Add</a>
   
                 <!-- Table with stripped rows -->
                     
@@ -56,8 +56,8 @@
                                            <img src="{{asset('uploads/product/'.$product->p_banner)}}" alt="" title="uoihyuy" style="width: 120px; height: 60px;">
                                        </td>
                                        <td >
-                                           <a href="{{route('product.edit',$product->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
-                                           <a href="{{route('product.delete',$product->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                         <a href="{{route('product.delete',$product->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                         <a href="{{route('product.edit',$product->id)}}" class="btn btn-sm btn-outline-success">Edit</a>
                                        </td>
                                    </tr>
                                @endforeach

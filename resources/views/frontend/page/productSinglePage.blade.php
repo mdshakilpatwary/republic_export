@@ -74,21 +74,14 @@ $pageTitle ='Single Product';
         <!--our products info 03 section end-->
     <section id="single_product_page_img">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-12 col-sm-12 col-xl-12">
-                    <div class="about-info-gallery-photo single_product_img">
-                        @foreach($images as $image)
-                        <div class="photo">
-                          <img src="{{asset('uploads/product/'.$image->image)}}">
+            <div class="row g-5">
+                @foreach($images as $image)
+                    <div class="col-md-4 col-6 col-sm-6 col-xl-3 col-lg-3">
+                        <div class="" style="width: 100%">
+                          <img src="{{asset('uploads/product/'.$image->image)}}" style="width: 100%">
                         </div>
-                        @endforeach
-                        
-                       
-                        
-                        
-                        
-                      </div>
-                </div>
+                    </div>
+                @endforeach
             </div>
             {{-- <p> All Printed designs created by our studio. All products manufactured by Crossline. </p> --}}
     

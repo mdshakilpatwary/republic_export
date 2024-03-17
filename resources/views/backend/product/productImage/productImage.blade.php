@@ -40,13 +40,15 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="inputNumber" class=" col-form-label">Multiple Image</label>
+                            <label for="inputNumber" class=" col-form-label">Multiple Image <span style="color: #6b6868">(resolution 400x350 )</span></label>
                             <input class="form-control file_image" type="file" name="product_image[]" multiple>
                             @error('product_image')
                             <p class="text-danger">{{$message}}</p> 
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-success btn-lg">Insert</button>
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Add</button>
+                        </div>                        
                     </div>
                     
                   </div>

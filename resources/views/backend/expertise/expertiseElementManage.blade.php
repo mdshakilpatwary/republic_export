@@ -19,7 +19,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">All Expertise Data </h5>
-                <a href="{{route('expertise.element')}}" class="btn btn-sm btn-info">Add</a>
+                <a href="{{route('expertise.element')}}" class="btn btn-sm btn-success">Add</a>
   
                 <!-- Table with stripped rows -->
                     
@@ -60,15 +60,15 @@
                                        </td>
                                        <td>
                                         @if($expertise->status == 1)
-                                        <a href="{{route('expertise.element.status',$expertise->id)}}" class="btn btn-sm btn-outline-success">Active</a>
+                                        <a href="{{route('expertise.element.status',$expertise->id)}}" class="btn btn-sm btn-outline-info">Active</a>
                                         @else
                                         <a href="{{route('expertise.element.status',$expertise->id)}}" class="btn btn-sm btn-outline-warning">Inactive</a>
                                         @endif
                                        </td>
                                        
                                        <td >
-                                           <a href="{{route('expertise.element.edit',$expertise->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
-                                           <a href="{{route('expertise.element.delete',$expertise->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                         <a href="{{route('expertise.element.delete',$expertise->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                         <a href="{{route('expertise.element.edit',$expertise->id)}}" class="btn btn-sm btn-outline-success">Edit</a>
                                        </td>
                                    </tr>
                                @endforeach

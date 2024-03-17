@@ -19,7 +19,7 @@
 
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Add Page Wise Header information</h5>
+                <h5 class="card-title">Add Page Header information</h5>
   
                 <!-- General Form Elements -->
                 <form method="POST" action="{{route('header.info.store')}}" enctype="multipart/form-data">
@@ -30,7 +30,7 @@
                         <div class="form-group mb-3">
                             <label class="col-form-label">Select Page</label>
                             <select name="page_type" class="form-select" aria-label="Default select example">
-                                <option disabled selected>-----Select-----</option>
+                                <option disabled selected>---Please Select---</option>
                                 <option value="home">Home</option>
                                 <option value="about">About</option>
                                 <option value="expertise">Expertise</option>
@@ -73,14 +73,17 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="inputNumber" class=" col-form-label">Banner Image</label>
+                            <label for="inputNumber" class=" col-form-label">Banner Image <span style="color: #6b6868">(resolution 1200x600 )</span></label>
                             <img src="" alt="" class="change_image mb-2" style="width: 200px; height: 150px; display:block;">
                             <input class="form-control file_image" type="file" id="formFile" name="b_image" >
                             @error('b_image')
                             <p class="text-danger">{{$message}}</p> 
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-success btn-lg">Insert</button>
+
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Add</button>
+                        </div>
                     </div>
                     
                   </div>

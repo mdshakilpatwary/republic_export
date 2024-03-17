@@ -20,7 +20,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">All Header Banner </h5>
-                <a href="{{route('header.info')}}" class="btn btn-sm btn-info">Add</a>
+                <a href="{{route('header.info')}}" class="btn btn-sm btn-success">Add</a>
   
                 <!-- Table with stripped rows -->
                     
@@ -61,8 +61,8 @@
                                        </td>
                                        <td>{{$banner_data->b_quote}}</td>
                                        <td >
-                                           <a href="{{route('header.info.edit',$banner_data->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
-                                           <a href="{{route('header.info.delete',$banner_data->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                         <a href="{{route('header.info.delete',$banner_data->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                         <a href="{{route('header.info.edit',$banner_data->id)}}" class="btn btn-sm btn-outline-success">Edit</a>
                                        </td>
                                    </tr>
                                @endforeach

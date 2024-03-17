@@ -41,7 +41,7 @@
                         <div class="form-group mb-3">
                             <label class="col-form-label">Select Product</label>
                             <select name="product_name" class="form-select" aria-label="Default select example">
-                                <option disabled selected>-----Select-----</option>
+                                <option disabled selected>---Please Select---</option>
                               @foreach($products as $product)
                                 <option value="{{$product->id}}">{{$product->p_name}}</option>
                               @endforeach
@@ -68,8 +68,9 @@
                             @enderror
                         </div>
       
-
-                        <button type="submit" class="btn btn-success btn-lg">Insert</button>
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Add</button>
+                        </div>
                     </div>
                     
                   </div>

@@ -122,8 +122,9 @@ use App\Models\CsrPageElement;
                             <hr>
                         </div>
       
-
-                        <button type="submit" class="btn btn-success btn-lg">Update</button>
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Save</button>
+                        </div>
                     </div>
                     
                   </div>
@@ -218,8 +219,9 @@ use App\Models\CsrPageElement;
                         </div>
       
 
-                        
-                          <button type="submit" class="btn btn-success btn-lg">Insert</button>
+                        <div class="submit_button_align" style="text-align: right;">
+                          <button type="submit" class="btn btn-success btn-lg">Add</button>
+                        </div>                        
                     </div>
                     
                   </div>

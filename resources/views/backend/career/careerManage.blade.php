@@ -20,7 +20,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">All Career Information </h5>
-                <a href="{{route('career')}}" class="btn btn-sm btn-info">Add</a>
+                <a href="{{route('career')}}" class="btn btn-sm btn-success">Add</a>
   
                 <!-- Table with stripped rows -->
                     
@@ -56,7 +56,7 @@
                                        </td>
                                        <td >
                                            <a href="{{route('career.delete',$career->id)}}" class="btn btn-sm btn-outline-danger">Delete</a>
-                                           <a href="{{route('career.edit',$career->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
+                                           <a href="{{route('career.edit',$career->id)}}" class="btn btn-sm btn-outline-success">Edit</a>
                                        </td>
                                    </tr>
                                @endforeach
