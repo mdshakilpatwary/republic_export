@@ -192,6 +192,15 @@
       </li>
       
     <!-- End Profile Page Nav -->
+    <li class="nav-heading">Nave-Item</li>
+
+      <li class="nav-item" style="background:{{ Route::is('menu.create')? '#f6f9ff' : ' none !important' }} ; ">
+        <a class="nav-link {{ Route::is('menu.create')? 'active' : '' }}" href="{{route('menu.create')}}" style="color:{{ Route::is('menu.create')? '' : 'inherit' }} ;">
+          <i class="bi bi-segmented-nav"></i>
+          <span>Menu-Bar</span>
+        </a>
+      </li>
+      
     </ul>
 
   </aside>

@@ -7,7 +7,8 @@ $pageTitle ='Single Product';
 @section('mainContent')
 <!--HEADER-->
 
-<div class="header" style="background-image:  url('{{asset('uploads/product/'.$product->p_banner)}}');">
+<div class="header">
+    <img class="banner_image" src="{{asset('uploads/product/'.$product->p_banner)}}" alt="">
     <div class="bg-color">
         {{-- header  --}}
         @include('frontend.includes.header')

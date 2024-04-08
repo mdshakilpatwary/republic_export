@@ -111,11 +111,20 @@ HEADER
 ***********************************/
 
 .header {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
   min-height: 750px;
   position: relative;
+  z-index: 1;
+
+}
+.header .banner_image{
+    position: absolute;
+    width:100%;
+    height:100%;
+    z-index: -1;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
 }
 
 .bg-color {
@@ -377,7 +386,7 @@ client logo
   margin-bottom: 40px;
 }
 .client-logo-item img{
-  width:150px;
+  width:100%;
   padding:0 40px;
   cursor:grab;
 }
@@ -601,6 +610,7 @@ hero banner
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 /********** About page css end******** */
 .csr_info_content .common_p{
   color: black !important;
@@ -868,6 +878,7 @@ content: "\f068";
   font-family: "Font Awesome 5 free"; 
 font-weight: 600;
 color: #67696c;
+
 
 }
 

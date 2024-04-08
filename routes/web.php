@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\ProductElementController;
 use App\Http\Controllers\Backend\ExpertisePageController;
 use App\Http\Controllers\Backend\CareerController;
 use App\Http\Controllers\Backend\CsrPageController;
+use App\Http\Controllers\Backend\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -172,6 +173,16 @@ Route::middleware('auth','role:Admin')->group(function () {
         Route::post('/csr/production/store', 'csrProductionStore')->name('csr.production.store');
         Route::post('/csr/production/update/{id}', 'csrProductionUpdate')->name('csr.production.update');
 
+
+    });
+    //menubar route part controller group------- 09
+    Route::controller(MenuController::class)->group(function () {
+        // manu part 
+        Route::get('/header/menu', 'create')->name('menu.create');
+        Route::post('/header/menu/update/{id}', 'update')->name('menu.update');
+        Route::get('/header/menu/status/{id}', 'status')->name('header.menu.status');
+        
+ 
 
     });
 

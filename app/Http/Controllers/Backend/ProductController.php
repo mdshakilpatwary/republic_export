@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use File;
 class ProductController extends Controller
 {
@@ -33,56 +35,70 @@ class ProductController extends Controller
         
 
         if($request->file('product_image')){
+            $manager = new ImageManager(new Driver());
             $image = $request->file('product_image');
             $customName = 'product' . rand() . '.' . $image->getClientOriginalExtension();            
-            
+            $img = $manager->read($image)->resize(400,350);          
+            $img->toPng()->save(public_path('uploads/product/'.$customName)); 
             $product->p_image= $customName;
-            $image->move('uploads/product/',$customName);
  
         }
         // banner image part 
         if($request->file('product_banner')){
+            $b_manager = new ImageManager(new Driver());
             $b_image = $request->file('product_banner');
             $b_customName = 'banner' . rand() . '.' . $b_image->getClientOriginalExtension();            
             
+            $b_img = $b_manager->read($b_image)->resize(1200,600);          
+            $b_img->toJpeg()->save(public_path('uploads/product/'.$b_customName)); 
             $product->p_banner= $b_customName;
-            $b_image->move('uploads/product/',$b_customName);
  
         }
         // design content img start
         if($request->file('image_1')){
+            
             $image = $request->file('image_1');
-            $customName = 'image_1' . rand() . '.' . $image->getClientOriginalExtension();         
-            $product->image_1= $customName;
-            $image->move('uploads/product/',$customName);   
- 
+            $customName = 'image_1' . rand() . '.' . $image->getClientOriginalExtension();
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(500,600);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName)); 
+
+            $product->image_1= $customName; 
         }
         if($request->file('image_2')){
             $image = $request->file('image_2');
-            $customName = 'image_2' . rand() . '.' . $image->getClientOriginalExtension();         
+            $customName = 'image_2' . rand() . '.' . $image->getClientOriginalExtension(); 
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(500,600);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName));         
             $product->image_2= $customName;
-            $image->move('uploads/product/',$customName);   
         }
         if($request->file('image_3')){
             $image = $request->file('image_3');
-            $customName = 'image_3' . rand() . '.' . $image->getClientOriginalExtension();         
+            $customName = 'image_3' . rand() . '.' . $image->getClientOriginalExtension(); 
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(500,400);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName));         
             $product->image_3= $customName;
-            $image->move('uploads/product/',$customName);   
         }
         if($request->file('image_4')){
             $image = $request->file('image_4');
-            $customName = 'image_4' . rand() . '.' . $image->getClientOriginalExtension();         
+            $customName = 'image_4' . rand() . '.' . $image->getClientOriginalExtension();  
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(800,500);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName));        
             $product->image_4= $customName;
-            $image->move('uploads/product/',$customName);   
         }
         if($request->file('image_5')){
             if(File::exists(public_path('uploads/product/'.$product->image_5))){
                 File::delete(public_path('uploads/product/'.$product->image_5));
             }
             $image = $request->file('image_5');
-            $customName = 'image_5' . rand() . '.' . $image->getClientOriginalExtension();         
+            $customName = 'image_5' . rand() . '.' . $image->getClientOriginalExtension(); 
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(300,500);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName));         
             $product->image_5= $customName;
-            $image->move('uploads/product/',$customName);   
         }
         // design content img end
 
@@ -109,13 +125,13 @@ class ProductController extends Controller
     public function update(Request $request,$id){
         $product =Product::findOrFail($id);
         $request->validate([
-            'product_image' => 'image|mimes:jpeg,png,jpg,gif|max:1048',
-            'product_banner' => 'image|mimes:jpeg,png,jpg,gif|max:1048',
-            'image_1' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1048',
-            'image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1048',
-            'image_3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1048',
-            'image_4' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1048',
-            'image_5' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1048',
+            'product_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'product_banner' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_1' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_4' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_5' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'product_name' => 'required|max:100',
             'product_headline' => 'required|max:200',
             'product_description' => 'required|max:500',
@@ -126,14 +142,15 @@ class ProductController extends Controller
         
 
         if($request->file('product_image')){
+            $manager = new ImageManager(new Driver());
             if(File::exists(public_path('uploads/product/'.$product->p_image))){
                 File::delete(public_path('uploads/product/'.$product->p_image));
             }
             $image = $request->file('product_image');
             $customName = 'product' . rand() . '.' . $image->getClientOriginalExtension();            
-            
+            $img = $manager->read($image)->resize(400,350);          
+            $img->toPng()->save(public_path('uploads/product/'.$customName)); 
             $product->p_image= $customName;
-            $image->move('uploads/product/',$customName);
  
         }
         // banner image part 
@@ -141,11 +158,12 @@ class ProductController extends Controller
             if(File::exists(public_path('uploads/product/'.$product->p_banner))){
                 File::delete(public_path('uploads/product/'.$product->p_banner));
             }
+            $b_manager = new ImageManager(new Driver());
             $b_image = $request->file('product_banner');
-            $b_customName = 'banner' . rand() . '.' . $b_image->getClientOriginalExtension();            
-            
+            $b_customName = 'banner' . rand() . '.' . $b_image->getClientOriginalExtension(); 
+            $b_img = $b_manager->read($b_image)->resize(1200,600);          
+            $b_img->toJpeg()->save(public_path('uploads/product/'.$b_customName));             
             $product->p_banner= $b_customName;
-            $b_image->move('uploads/product/',$b_customName);
  
         }
         // design content img start
@@ -154,9 +172,12 @@ class ProductController extends Controller
                 File::delete(public_path('uploads/product/'.$product->image_1));
             }
             $image = $request->file('image_1');
-            $customName = 'image_1' . rand() . '.' . $image->getClientOriginalExtension();         
+            $customName = 'image_1' . rand() . '.' . $image->getClientOriginalExtension();
+            
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(500,600);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName));
             $product->image_1= $customName;
-            $image->move('uploads/product/',$customName);   
     
         }
         if($request->file('image_2')){
@@ -164,36 +185,44 @@ class ProductController extends Controller
                 File::delete(public_path('uploads/product/'.$product->image_2));
             }
             $image = $request->file('image_2');
-            $customName = 'image_2' . rand() . '.' . $image->getClientOriginalExtension();         
+            $customName = 'image_2' . rand() . '.' . $image->getClientOriginalExtension();   
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(500,600);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName));         
             $product->image_2= $customName;
-            $image->move('uploads/product/',$customName);   
         }
         if($request->file('image_3')){
             if(File::exists(public_path('uploads/product/'.$product->image_3))){
                 File::delete(public_path('uploads/product/'.$product->image_3));
             }
             $image = $request->file('image_3');
-            $customName = 'image_3' . rand() . '.' . $image->getClientOriginalExtension();         
+            $customName = 'image_3' . rand() . '.' . $image->getClientOriginalExtension();  
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(500,400);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName));       
             $product->image_3= $customName;
-            $image->move('uploads/product/',$customName);   
         }
         if($request->file('image_4')){
             if(File::exists(public_path('uploads/product/'.$product->image_4))){
                 File::delete(public_path('uploads/product/'.$product->image_4));
             }
             $image = $request->file('image_4');
-            $customName = 'image_4' . rand() . '.' . $image->getClientOriginalExtension();         
+            $customName = 'image_4' . rand() . '.' . $image->getClientOriginalExtension(); 
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(800,500);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName));         
             $product->image_4= $customName;
-            $image->move('uploads/product/',$customName);   
         }
         if($request->file('image_5')){
             if(File::exists(public_path('uploads/product/'.$product->image_5))){
                 File::delete(public_path('uploads/product/'.$product->image_5));
             }
             $image = $request->file('image_5');
-            $customName = 'image_5' . rand() . '.' . $image->getClientOriginalExtension();         
+            $customName = 'image_5' . rand() . '.' . $image->getClientOriginalExtension(); 
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read($image)->resize(300,500);          
+            $img->toJpeg()->save(public_path('uploads/product/'.$customName));         
             $product->image_5= $customName;
-            $image->move('uploads/product/',$customName);   
         }
         // design content img end
 

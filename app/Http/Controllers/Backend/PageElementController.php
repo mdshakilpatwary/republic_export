@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PageElement;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use File;
 
 class PageElementController extends Controller
@@ -32,9 +34,10 @@ class PageElementController extends Controller
                     foreach($files as $file){
                         $customnamefile='industrialElement'.rand().'.'. $file->getClientOriginalExtension();
                         $images[]= $customnamefile;
-                       
-                        $file->move('uploads/element/', $customnamefile);
-                
+                        $manager = new ImageManager(new Driver());
+                        $img = $manager->read($file)->resize(200,150);          
+                        $img->toPng()->save(public_path('uploads/element/'.$customnamefile));
+                                      
                        
             
                     }
@@ -87,11 +90,13 @@ class PageElementController extends Controller
              if($request->file('elementImage')){
                 $files = $request->file('elementImage');
                 foreach($files as $file){
+                    $manager = new ImageManager(new Driver());
                     $customnamefile='industrialElement'.rand().'.'. $file->getClientOriginalExtension();
+                    $img = $manager->read($file)->resize(200,150);          
+                    $img->toPng()->save(public_path('uploads/element/'.$customnamefile));
+                  
                     $images[]= $customnamefile;
-                   
-                        $file->move('uploads/element/', $customnamefile);
-                    
+                                       
         
                 }
              }
@@ -134,11 +139,12 @@ class PageElementController extends Controller
                 $files = $request->file('elementImage');
                 
                     foreach($files as $file){
+                        $manager = new ImageManager(new Driver());
                         $customnamefile='industrialElement'.rand().'.'. $file->getClientOriginalExtension();
+                        $img = $manager->read($file)->resize(200,80);          
+                        $img->toPng()->save(public_path('uploads/element/'.$customnamefile));
                         $images[]= $customnamefile;
-                       
-                        $file->move('uploads/element/', $customnamefile);
-                
+                                       
                        
             
                     }
@@ -187,10 +193,13 @@ class PageElementController extends Controller
              if($request->file('elementImage')){
                 $files = $request->file('elementImage');
                 foreach($files as $file){
+                    $manager = new ImageManager(new Driver());
                     $customnamefile='industrialElement'.rand().'.'. $file->getClientOriginalExtension();
+                    $img = $manager->read($file)->resize(200,80);          
+                    $img->toPng()->save(public_path('uploads/element/'.$customnamefile));
+                  
                     $images[]= $customnamefile;
                    
-                        $file->move('uploads/element/', $customnamefile);
                     
         
                 }

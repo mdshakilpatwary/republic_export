@@ -3,8 +3,11 @@ use App\Models\CommonHeaderBanner;
 use App\Models\CsrPageElement;
 $pageTitle ='Csr';
 $header_banner = '';
+use App\Models\MenuName;
 
 ?>
+@if(MenuName::where('status',1)->where('type',4)->first())
+
 @extends('frontend.master')
 @section('mainContent')
 <!--HEADER-->
@@ -16,7 +19,9 @@ $header_banner = '';
   @endphp
 @endif
 
-       <div class="header" style="{{ $header_banner != '' ? 'background-image: url(' . asset('uploads/banner/'.$header_banner) . ');' : 'background:#095053; min-height:100px !important;' }}">
+       <!--HEADER-->
+       <div class="header" style="{{ $header_banner != '' ? '' : 'background:#095053; min-height:100px !important;' }}">
+        <img class="banner_image" src="{{ $header_banner != '' ? asset('uploads/banner/'.$header_banner) : '' }}" alt="">
         <div class="bg-color" style="{{ $header_banner != '' ? '' : 'min-height:100px !important;' }}">
           <!-- Header part start-->
           @include('frontend.includes.header')
@@ -241,7 +246,8 @@ $header_banner = '';
 
 
 @endsection
-{{-- 
+@else
+
 <script type="text/javascript">
     // Hide the template after a few seconds
     setTimeout(function () {
@@ -249,4 +255,5 @@ $header_banner = '';
         window.location.href = '/'; 
     }, 50); 
 
-    </script> --}}
+    </script>
+@endif

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CommonHeaderBanner;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use File;
 
 class PageBannerController extends Controller
@@ -30,14 +32,16 @@ class PageBannerController extends Controller
         $headerInfo->type = $request->page_type ;
 
         if($request->file('b_image')){
+            $manager = new ImageManager(new Driver());
             if(File::exists(public_path('uploads/banner/'.$headerInfo->b_image))){
                 File::delete(public_path('uploads/banner/'.$headerInfo->b_image));
             }
             $image = $request->file('b_image');
-            $customName = 'banner' . rand() . '.' . $image->getClientOriginalExtension();            
-            
+
+            $customName = 'banner' . rand() . '.' . $image->getClientOriginalExtension();  
+            $img = $manager->read($image)->resize(1800,800);          
+            $img->toJpeg()->save(public_path('uploads/banner/'.$customName));          
             $headerInfo->b_image= $customName;
-            $image->move('uploads/banner/',$customName);
  
         }
         $msg =$headerInfo->save();
@@ -74,14 +78,15 @@ class PageBannerController extends Controller
         $banner_data->b_quote =$request->b_quote ;
 
         if($request->file('b_image')){
+            $manager = new ImageManager(new Driver());
             if(File::exists(public_path('uploads/banner/'.$banner_data->b_image))){
                 File::delete(public_path('uploads/banner/'.$banner_data->b_image));
             }
             $image = $request->file('b_image');
             $customName = 'banner' . rand() . '.' . $image->getClientOriginalExtension();            
-            
+            $img = $manager->read($image)->resize(1800,800);          
+            $img->toJpeg()->save(public_path('uploads/banner/'.$customName));  
             $banner_data->b_image= $customName;
-            $image->move('uploads/banner/',$customName);
  
         }
         $msg =$banner_data->update();

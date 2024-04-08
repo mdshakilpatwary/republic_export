@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PageElement;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use File;
 
 class AboutElementController extends Controller
@@ -33,10 +35,10 @@ class AboutElementController extends Controller
                         foreach($files as $file){
                             $customnamefile='aboutStoryMulti'.rand().'.'. $file->getClientOriginalExtension();
                             $images[]= $customnamefile;
-                           
-                            $file->move('uploads/about/', $customnamefile);
-                    
-                           
+                            $manager = new ImageManager(new Driver());
+                            $img = $manager->read($file)->resize(500,450);          
+                            $img->toJpeg()->save(public_path('uploads/about/'.$customnamefile));
+                                                 
                 
                         }
                     
@@ -44,10 +46,12 @@ class AboutElementController extends Controller
                 if($request->file('singleImage')){
                     $singlefiles = $request->file('singleImage');
                     
-                            $customnamefile='aboutStorysingle'.rand().'.'. $singlefiles->getClientOriginalExtension();                           
-                            $singlefiles->move('uploads/about/', $customnamefile);
-                            
-                            $pageElement->image =$customnamefile;
+                    $customnamefile='aboutStorysingle'.rand().'.'. $singlefiles->getClientOriginalExtension();                           
+                    $manager = new ImageManager(new Driver());
+                    $img = $manager->read($singlefiles)->resize(400,350);          
+                    $img->toJpeg()->save(public_path('uploads/about/'.$customnamefile));
+                         
+                    $pageElement->image =$customnamefile;
                     
                 }
     
@@ -95,8 +99,10 @@ class AboutElementController extends Controller
                         foreach($files as $file){
                             $customnamefile='aboutStoryMulti'.rand().'.'. $file->getClientOriginalExtension();
                             $images[]= $customnamefile;
-                           
-                            $file->move('uploads/about/', $customnamefile);
+                            $manager = new ImageManager(new Driver());
+                            $img = $manager->read($file)->resize(500,450);          
+                            $img->toJpeg()->save(public_path('uploads/about/'.$customnamefile));
+                                 
                 
                         }
                     
@@ -109,7 +115,10 @@ class AboutElementController extends Controller
                     $singlefiles = $request->file('singleImage');
                     
                     $customnamefile='aboutStorysingle'.rand().'.'. $singlefiles->getClientOriginalExtension();                           
-                    $singlefiles->move('uploads/about/', $customnamefile);
+                    $manager = new ImageManager(new Driver());
+                    $img = $manager->read($singlefiles)->resize(400,350);          
+                    $img->toJpeg()->save(public_path('uploads/about/'.$customnamefile));
+                         
                     
                     $elements->image =$customnamefile;
                     

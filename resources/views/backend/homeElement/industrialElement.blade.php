@@ -40,7 +40,7 @@ use App\Models\PageElement;
     
                             
                             <div class="row">
-                                <div class="col-md-12 col-xl-12 col-lg12 col-12 col-sm-12">
+                                <div class="col-md-12 col-xl-12 col-lg-12 col-12 col-sm-12">
                                     <table class="table" id="elementTable">
                                       
                                     @foreach ($contentArray['contentTitle'] as $key => $title)
@@ -103,11 +103,11 @@ use App\Models\PageElement;
                         @csrf
                             <div class="row mb-3">
                             
-                            <div class="offset-md-2 offset-lg-2 col-md-8 col-lg-8 col-12 col-sm-12">
+                            <div class="offset-md-1 offset-lg-1 col-md-10 col-lg-10 col-12 col-sm-12">
         
                                 
                                 <div class="row">
-                                    <div class="col-md-12 col-xl-12 col-lg12 col-12 col-sm-12">
+                                    <div class="col-md-12 col-xl-12 col-lg-12 col-12 col-sm-12">
                                         <table class="table" id="elementTable">
                                             <tr class="row_one">
                                                 <td>
