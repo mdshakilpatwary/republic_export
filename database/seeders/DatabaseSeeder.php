@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([UserTbl::class]);
         $this->call([SiteInfoTbl::class]);
         $this->call([MenuTable::class]);
+        $this->call([CareerCommonTbl::class]);
 
     }
 }

@@ -131,6 +131,8 @@ Route::middleware('auth','role:Admin')->group(function () {
         Route::get('/career', 'index')->name('career');
         Route::post('/career/store', 'store')->name('career.store');
         Route::post('/career/update/{id}', 'update')->name('career.update');
+        Route::get('/career/common', 'careerCommon')->name('career.common');
+        Route::post('/career/common/update/{id}', 'updateCommon')->name('career.common.update');
         Route::get('/career/manage', 'manage')->name('career.manage');
         Route::get('/career/edit/{id}', 'edit')->name('career.edit');
         Route::get('/career/delete/{id}', 'delete')->name('career.delete');
@@ -140,7 +142,7 @@ Route::middleware('auth','role:Admin')->group(function () {
 
     //Expertise page route part controller group------- 08
     Route::controller(ExpertisePageController::class)->group(function () {
-        // career part 
+        // expertise part 
         Route::get('/expertise/element', 'index')->name('expertise.element');
         Route::post('/expertise/element/store', 'store')->name('expertise.element.store');
         Route::get('/expertise/element/manage', 'manage')->name('expertise.element.manage');

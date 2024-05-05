@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Career;
 use App\Models\ProductSpecification;
+use App\Models\careerCommonInfo;
 use App\Models\ExpertisePageElement;
 use Illuminate\Http\Request;
 
@@ -40,8 +41,9 @@ class ViewFrontendController extends Controller
     // career page 
     public function careerPage(){
         $careers = Career::where('status','=',1)->orderBy('id','desc')->get();
+        $careercommon = careerCommonInfo::where('type','=',1)->first();
 
-        return view('frontend.page.career',compact('careers'));
+        return view('frontend.page.career',compact('careers','careercommon'));
     }
     // expertise page 
     public function expertisePage(){

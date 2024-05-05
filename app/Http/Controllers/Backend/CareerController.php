@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Career;
+use App\Models\careerCommonInfo;
 
 class CareerController extends Controller
 {
@@ -66,7 +67,7 @@ class CareerController extends Controller
         }
     }
     public function status($id){
-        $career =Career::findOrFail($id);
+    $career =Career::findOrFail($id);
        if($career->status == 1){
         $career->status =0;
         $msg =$career->update();
@@ -88,5 +89,30 @@ class CareerController extends Controller
         }
 
        }
+    }
+// career common part 
+    public function careerCommon(){
+        $careerCommon= careerCommonInfo::where('type','=',1)->first();
+        return view('backend.career.careerCommon',compact('careerCommon'));
+    }
+
+    public function updateCommon(Request $request,$id){
+
+        $request->validate([
+            'title' => 'required|max:250',
+            'career_footer' => 'required',
+            'career_text' => 'required',
+        ]);
+        $careerCommon =careerCommonInfo::where('type',$id)->first();
+        $careerCommon->title = $request->title;
+        $careerCommon->career_text = $request->career_text;
+        $careerCommon->career_footer = $request->career_footer;
+        $msg =$careerCommon->update();
+        if($msg){
+            return back()->with('success','Data Successfully Saved');
+        }
+        else{
+            return back()->with('error','Oops! Data Not Update.');
+        }
     }
 }

@@ -64,10 +64,10 @@
         </ul>
       </li>
       <li class="nav-item ">
-        <a class="nav-link collapsed " data-bs-target="#components-nav-8" data-bs-toggle="collapse" href="#" style="background:{{ Route::is('career*') || Route::is('career.manage*') ||Route::is('career.edit*')? '#f6f9ff' : '' }} ; ">
+        <a class="nav-link collapsed " data-bs-target="#components-nav-8" data-bs-toggle="collapse" href="#" style="background:{{ Route::is('career*') || Route::is('career.manage*') ||Route::is('career.common*') ||Route::is('career.edit*')? '#f6f9ff' : '' }} ; ">
           <i class="bi bi-wallet-fill"></i><span>Career page</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav-8" class="nav-content collapse {{ Route::is('career*') || Route::is('career.manage*') ||Route::is('career.edit*')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
+        <ul id="components-nav-8" class="nav-content collapse {{ Route::is('career*') || Route::is('career.manage*') ||Route::is('career.edit*')||Route::is('career.common*')? 'show' : '' }} " data-bs-parent="#sidebar-nav">
  
           <li>
             <a href="{{route('career')}}" class="{{ Route::is('career')? 'active' : '' }}">
@@ -77,6 +77,11 @@
           <li>
             <a href="{{route('career.manage')}}"  class="{{ Route::is('career.manage')? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Manage Career</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('career.common')}}"  class="{{ Route::is('career.common')? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Career Common Info</span>
             </a>
           </li>
         </ul>
